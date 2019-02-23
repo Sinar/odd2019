@@ -1,0 +1,741 @@
+GIS - Pengurusan Gunatanah Semasa bagi Gunatanah Perniagaan dan Perkhidmatan Pada Tahun 2010,,,,,,
+,,,,,,
+Bil.,No. Lot,Kampung,Gunatanah,Aktiviti,Kategori,Luas(hek)
+1,3121,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Stesen Minyak,0.27600000000000002
+2,2868,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.371
+3,2258,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,3.3000000000000002E-2
+4,1934,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2999999999999999E-2
+5,1935,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2E-2
+6,1937,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2999999999999999E-2
+7,1938,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2E-2
+8,1939,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2999999999999999E-2
+9,1940,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2999999999999999E-2
+10,1941,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2E-2
+11,1942,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2999999999999999E-2
+12,1943,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2999999999999999E-2
+13,3056,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Lain-Lain,0.39600000000000002
+14,6080,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,7.0999999999999994E-2
+15,6081,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.5000000000000002E-2
+16,6082,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.5000000000000002E-2
+17,6083,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.4000000000000001E-2
+18,6084,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.10100000000000001
+19,6085,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.127
+20,6086,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.10100000000000001
+21,6087,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.4000000000000001E-2
+22,6088,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.5000000000000002E-2
+23,6089,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.5000000000000002E-2
+24,6090,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,7.0999999999999994E-2
+25,9047,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.78400000000000003
+26,2091,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+27,2092,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+28,2093,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+29,2094,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+30,2095,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+31,2096,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+32,2097,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+33,2098,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+34,2099,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+35,2100,Kampung Kerupang / Nagalang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+36,7690,Pusat Bandar Labuan,Institusi Dan Kemudahan Masyarakat,Lain-Lain Kemudahan Masyarakat,Lain-Lain,0.26500000000000001
+37,589,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Stesen Minyak,0.67700000000000005
+38,1082,Kampung Lubuk Temiang,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Perkedaian,0.36599999999999999
+39,1272,Kampung Pantai,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Kedai Makan,0.17299999999999999
+40,1707,Kampung Pantai,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Kedai Makan,0.13500000000000001
+41,1708,Kampung Pantai,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Kedai Runcit,0.13500000000000001
+42,4625,Kampung Pantai,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Kedai Runcit,0.13400000000000001
+43,5157,Kampung Lajau,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.5000000000000003E-2
+44,5984,Kampung Lajau,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.44400000000000001
+45,6313,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+46,6314,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+47,6315,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+48,1764,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+49,1765,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+50,1766,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+51,1767,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+52,2629,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+53,2630,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+54,2631,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+55,2632,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+56,2633,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+57,2634,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+58,2635,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+59,2636,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+60,2637,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+61,2638,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+62,2639,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+63,2640,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+64,2641,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+65,2642,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+66,2643,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+67,2644,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+68,2645,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+69,2646,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+70,2647,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+71,2648,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+72,2649,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+73,2650,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+74,2651,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+75,2652,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+76,6304,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+77,6305,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+78,6306,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+79,628,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,9.7000000000000003E-2
+80,1748,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,1.7130000000000001
+81,309,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,2.9
+82,6310,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+83,6311,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+84,6312,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+85,3479,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+86,3480,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Peredaian,1.0999999999999999E-2
+87,3481,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+88,3482,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+89,3483,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+90,3484,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+91,3485,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+92,3486,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+93,3470,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+94,3471,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+95,3472,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+96,3473,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+97,3474,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.1999999999999999E-2
+98,3475,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+99,3476,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+100,3477,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+101,3478,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+102,6288,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.04
+103,6289,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.1000000000000003E-2
+104,1762,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+105,1763,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+106,2653,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+107,2654,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+108,2655,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+109,2656,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+110,2657,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+111,2658,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+112,2659,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+113,2660,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+114,2661,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+115,2662,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+116,2663,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+117,2664,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+118,2665,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+119,2666,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+120,2667,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+121,2668,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+122,2669,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+123,2670,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+124,2671,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+125,2672,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+126,2673,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+127,2674,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+128,6307,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+129,6308,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+130,6309,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.01
+131,1159,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.1E-2
+132,1160,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.1E-2
+133,1161,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.1E-2
+134,1162,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.1E-2
+135,1163,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+136,1164,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+137,1165,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+138,1166,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+139,1167,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+140,1168,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+141,1169,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+142,1170,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+143,1171,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+144,1172,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+145,1173,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+146,1174,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5000000000000001E-2
+147,577,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.03
+148,1131,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+149,1132,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,1.7999999999999999E-2
+150,1133,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+151,1134,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+152,1135,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+153,1154,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+154,1155,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+155,1156,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+156,1157,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+157,1158,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+158,491,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+159,492,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+160,493,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+161,494,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+162,495,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+163,496,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+164,497,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+165,498,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+166,499,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+167,500,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+168,1751,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+169,1752,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+170,1753,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+171,1754,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+172,6637,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.11600000000000001
+173,3264,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.3000000000000002E-2
+174,549,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.6000000000000003E-2
+175,586,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+176,587,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+177,590,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+178,465,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+179,2675,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+180,2676,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+181,2677,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+182,2678,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+183,2679,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+184,2680,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+185,2681,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+186,2682,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+187,2683,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+188,2684,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+189,2685,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+190,2686,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+191,2687,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+192,2688,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+193,2689,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+194,2690,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+195,2695,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.02
+196,2696,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.02
+197,2697,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+198,2698,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+199,2699,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+200,2700,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+201,2701,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+202,2264,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.05
+203,631,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+204,632,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+205,633,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+206,634,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+207,635,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+208,636,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+209,637,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+210,638,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+211,639,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+212,651,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+213,415,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+214,416,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+215,417,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+216,418,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+217,419,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+218,420,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+219,421,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+220,422,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+221,423,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+222,424,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+223,425,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+224,426,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+225,427,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+226,428,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+227,434,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+228,435,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+229,436,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+230,437,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+231,438,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+232,439,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+233,440,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+234,441,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+235,442,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+236,443,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+237,444,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+238,490,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+239,518,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+240,1627,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+241,1628,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+242,1629,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+243,1630,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+244,1631,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+245,1632,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+246,1633,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+247,1634,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+248,1635,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+249,1636,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+250,1637,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+251,1638,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+252,1639,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+253,1640,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+254,1641,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+255,1642,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+256,1643,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+257,1644,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+258,1645,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+259,1646,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+260,1647,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+261,1648,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+262,1653,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+263,1654,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+264,1655,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+265,1656,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+266,1657,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+267,1658,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+268,466,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+269,412,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+270,413,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+271,589,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+272,546,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+273,541,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+274,542,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+275,543,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+276,544,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+277,545,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+278,539,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+279,548,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+280,540,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+281,547,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+282,588,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+283,591,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+284,557,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.4000000000000005E-2
+285,558,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.3000000000000004E-2
+286,559,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.2000000000000003E-2
+287,560,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.1000000000000003E-2
+288,561,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.1000000000000003E-2
+289,562,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.1000000000000003E-2
+290,563,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,4.1000000000000002E-2
+291,564,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.1000000000000003E-2
+292,568,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.2E-2
+293,569,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.0999999999999999E-2
+294,570,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.0999999999999999E-2
+295,571,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.8000000000000005E-2
+296,3300,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+297,8092,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pasar,0.504
+298,1067,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.374
+299,604,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.6000000000000003E-2
+300,448,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.3000000000000002E-2
+301,449,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.3000000000000002E-2
+302,450,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.3000000000000002E-2
+303,451,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.3000000000000002E-2
+304,706,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.3000000000000002E-2
+305,397,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+306,398,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+307,399,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+308,400,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+309,401,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+310,430,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+311,431,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+312,432,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+313,433,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+314,511,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+315,406,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+316,407,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+317,408,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+318,501,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+319,502,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+320,503,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+321,504,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+322,505,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+323,506,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+324,507,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+325,508,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+326,509,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+327,510,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+328,513,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+329,514,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+330,515,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+331,1659,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+332,1660,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+333,1661,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+334,1662,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+335,1663,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+336,1664,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+337,1665,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+338,1666,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+339,1667,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+340,1668,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+341,525,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.2000000000000001E-2
+342,526,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.2000000000000001E-2
+343,527,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.5999999999999997E-2
+344,600,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.5999999999999997E-2
+345,601,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.2000000000000001E-2
+346,602,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.5999999999999997E-2
+347,603,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.2000000000000001E-2
+348,707,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.2000000000000001E-2
+349,708,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.2000000000000001E-2
+350,709,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.5999999999999997E-2
+351,550,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+352,551,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+353,528,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+354,552,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+355,531,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+356,553,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+357,746,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+358,747,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+359,748,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+360,530,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Stesen Minyak,1.9E-2
+361,913,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pasar,9.2999999999999999E-2
+362,3301,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+363,3302,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+364,529,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,9.0999999999999998E-2
+365,402,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+366,403,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+367,404,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+368,405,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+369,6839,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+370,6841,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.03
+371,6845,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+372,6846,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+373,6847,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.7E-2
+374,1572,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.152
+375,7034,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Gerai,0.109
+376,7302,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1E-3
+377,1566,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.622
+378,7765,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.5999999999999999E-2
+379,726,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.0999999999999999E-2
+380,9136,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,0.14399999999999999
+381,5018,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+382,5019,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+383,5020,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+384,5021,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+385,5022,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7999999999999999E-2
+386,5023,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+387,6835,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+388,6836,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+389,6837,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+390,6838,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+391,6840,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.4E-2
+392,6843,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+393,6844,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+394,6831,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+395,6832,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+396,6833,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+397,6834,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.3E-2
+398,6011,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+399,6012,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+400,6013,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+401,6014,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+402,6015,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+403,6016,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+404,6017,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+405,6018,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+406,6019,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.1000000000000001E-2
+407,6020,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+408,6021,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+409,6022,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+410,6023,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+411,6024,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+412,6025,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+413,6026,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+414,6027,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+415,6028,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+416,6029,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+417,6030,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+418,6031,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+419,3164,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+420,3165,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+421,3166,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+422,3167,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+423,3168,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+424,3169,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+425,3170,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+426,3171,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+427,3172,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+428,3173,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+429,3174,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+430,3175,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+431,3176,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+432,3177,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+433,3178,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+434,3179,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+435,3180,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+436,3181,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+437,3182,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+438,3183,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+439,1138,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+440,1139,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+441,1140,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+442,1877,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+443,1878,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+444,1879,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+445,1880,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+446,1881,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+447,1882,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+448,1883,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+449,1884,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+450,1885,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+451,1886,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+452,1887,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+453,3061,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,1.0999999999999999E-2
+454,3062,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,1.0999999999999999E-2
+455,3063,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,1.0999999999999999E-2
+456,3064,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,1.0999999999999999E-2
+457,2249,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+458,2250,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+459,2251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+460,2252,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+461,2253,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+462,2254,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+463,3066,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.33600000000000002
+464,6640,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2E-3
+465,1137,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+466,1141,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+467,1142,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+468,1143,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+469,1144,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+470,1145,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+471,1146,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+472,1147,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+473,1148,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+474,1149,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+475,1150,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+476,1151,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+477,1152,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+478,3161,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,6.0999999999999999E-2
+479,1578,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.44
+480,1910,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.16400000000000001
+481,2255,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+482,627,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,0.05
+483,2266,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+484,2267,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+485,2268,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+486,2269,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+487,2270,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+488,2271,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+489,2272,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,8.5000000000000006E-2
+490,1671,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+491,1672,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+492,1673,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+493,1674,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+494,1675,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+495,1676,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+496,1677,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+497,1678,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+498,1679,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+499,1680,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+500,1681,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+501,1682,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+502,1683,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+503,1684,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+504,1685,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+505,1686,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+506,1687,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+507,1689,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.26100000000000001
+508,1690,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.40699999999999997
+509,1901,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+510,1902,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+511,1903,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+512,1904,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+513,1905,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+514,1906,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+515,1907,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+516,1908,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+517,1900,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+518,1387,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+519,1388,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+520,1389,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+521,1390,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+522,1391,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+523,598,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.14699999999999999
+524,599,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Ruang Pameran Hundai,0.39600000000000002
+525,818,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.19
+526,824,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.154
+527,2256,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+528,2715,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+529,2716,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+530,2717,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+531,2718,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+532,2719,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+533,2720,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+534,2721,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+535,2722,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+536,2723,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+537,2724,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+538,2725,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+539,2726,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+540,2727,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+541,2728,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+542,2729,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+543,2730,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+544,2731,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+545,2732,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+546,2734,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+547,2735,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+548,2736,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+549,2737,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+550,2738,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+551,2739,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+552,1048,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,4.5999999999999999E-2
+553,2712,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,5.8999999999999997E-2
+554,555,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,6.9000000000000006E-2
+555,5838,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+556,5839,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+557,5837,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+558,5840,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+559,5841,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+560,5842,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+561,5843,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+562,5844,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+563,5845,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+564,5846,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+565,5847,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+566,5848,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+567,5849,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+568,5850,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+569,5851,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+570,5852,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+571,5853,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+572,5854,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+573,5855,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.9E-2
+574,5856,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,3.7999999999999999E-2
+575,7646,Kampung Bukit Kallam,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Perkedaian,0.45800000000000002
+576,7692,Kiamsam,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.48799999999999999
+577,9022,Kampung Layang-Layangan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Kompleks Perniagaan,0.51200000000000001
+578,5657,Kampung Batu Manikar,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Hotel Manikar,1.272
+579,6615,Kampung Batu Manikar,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Hotel Manikar,0.95699999999999996
+580,3012,Kampung Batu Manikar,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Hotel Manikar,0.755
+581,5657,Kampung Batu Manikar,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Hotel Manikar,0.30199999999999999
+582,946,Kampung Batu Manikar,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Hotel Manikar,0.75
+583,851,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Stesen Minyak,0.29699999999999999
+584,2078,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+585,2081,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+586,2083,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+587,2086,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+588,3434,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+589,3436,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+590,3438,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+591,7477,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.8000000000000001E-2
+592,7478,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+593,7479,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+594,7480,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+595,7481,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+596,7482,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+597,7483,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+598,7484,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+599,7485,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+600,7486,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.7E-2
+601,7487,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.8000000000000001E-2
+602,7488,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+603,7489,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+604,7490,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+605,7491,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+606,7492,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+607,7493,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+608,7494,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+609,7495,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+610,7496,Kampung Sungai Bedaun,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.7E-2
+611,2079,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+612,2080,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+613,2082,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+614,2084,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+615,2085,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+616,3435,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+617,3437,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+618,3439,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+619,6169,Kampung Layang-Layangan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Hiburan,0.995
+620,3159,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,2.2240000000000002
+621,3199,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Kewangan,4.4989999999999997
+622,386,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Hiburan,0.35299999999999998
+623,3188,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.60699999999999998
+624,9177,Kampung Kilan/Pulau Akar,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Perkedaian,0.51500000000000001
+625,7761,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Medan Selera,0.36899999999999999
+626,9096,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.22500000000000001
+627,6583,Kampung Layang-Layangan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0649999999999999
+628,8577,Kampung Ganggarak/Merinding,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Gerai,0.24299999999999999
+629,225,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.90300000000000002
+630,2636,Kampung Lajau,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,1.2E-2
+631,2637,Kampung Lajau,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,8.7999999999999995E-2
+632,6963,Kampung Lajau,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,5.2999999999999999E-2
+633,6962,Kampung Lajau,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.375
+634,2704,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Stesen Minyak,0.28299999999999997
+635,2967,Kampung Gersik / Saguking,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,2.7E-2
+636,2614,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+637,2615,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+638,2616,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.7000000000000001E-2
+639,2617,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+640,3246,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Stesen Minyak,0.215
+641,2507,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+642,2508,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+643,2509,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+644,4330,Kampung Pohon Batu,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.40400000000000003
+645,1623,Kampung Sungai Keling,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pasar,0.45
+646,1579,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,4.1000000000000002E-2
+647,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+648,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+649,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+650,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+651,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+652,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+653,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+654,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+655,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+656,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+657,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+658,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+659,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+660,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+661,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+662,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+663,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+664,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+665,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+666,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+667,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+668,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+669,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+670,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+671,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+672,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+673,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+674,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+675,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.0999999999999999E-2
+676,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+677,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+678,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+679,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+680,3251,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2E-2
+681,2698,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+682,2698,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.2999999999999999E-2
+683,2894,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.56499999999999995
+684,2778,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.439
+685,2968,Kampung Gersik / Saguking,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.02
+686,2969,Kampung Gersik / Saguking,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,4.9000000000000002E-2
+687,2783,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.40400000000000003
+688,2784,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.44500000000000001
+689,2785,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.40200000000000002
+690,5658,Kampung Batu Manikar,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Hotel Manikar,2.887
+691,2205,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.113
+692,2793,Kampung Batu Arang,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,9.0999999999999998E-2
+693,8198,Pulau Papan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,2.87
+694,874,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Lain-Lain,0.12
+695,1337,Kampung Gersik / Saguking,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Perkedaian,0.158
+696,8277,Kampung Sungai Labu,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,0.45100000000000001
+697,7064,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,6.7000000000000004E-2
+698,7069,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,5.5E-2
+699,7047,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,7.6999999999999999E-2
+700,7053,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.13700000000000001
+701,8007,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.17599999999999999
+702,4388,Kampung Sungai Bangat,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.56499999999999995
+703,1580,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,8.4000000000000005E-2
+704,6642,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.46899999999999997
+705,5608,Kampung Tanjung Aru,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,4.4999999999999998E-2
+706,5872,Kampung Tanjung Aru,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,10.685
+707,1002,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,8.1000000000000003E-2
+708,1003,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,8.6999999999999994E-2
+709,1004,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,9.4E-2
+710,1005,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,0.106
+711,1006,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,9.5000000000000001E-2
+712,1007,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,7.6999999999999999E-2
+713,1008,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,8.4000000000000005E-2
+714,1009,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Institusi Swasta,8.2000000000000003E-2
+715,9315,Kampung Durian Tunjong,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,0.58599999999999997
+716,20,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Kompleks Perniagaan,0.505
+717,3261,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,4.3999999999999997E-2
+718,3261,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.627
+719,3261,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.1
+720,3261,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,7.5999999999999998E-2
+721,9204,Kampung Bukit Kallam,Perniagaan Dan Perkhidmatan,Perniagaan Tidak Terancang,Perkedaian,0.109
+722,7113,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Pusat Makanan/Medan Selera,0.30199999999999999
+723,7817,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+724,7818,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+725,7819,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+726,7820,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+727,7821,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+728,7832,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+729,7833,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+730,7834,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+731,7835,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4999999999999999E-2
+732,7836,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.6E-2
+733,7837,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+734,7838,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+735,7839,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+736,7840,Kampung Patau-Patau No. 1,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Perkedaian,1.4E-2
+737,9123,Pusat Bandar Labuan,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,0.39
+738,2483,Pulau Kuraman,Perniagaan Dan Perkhidmatan,Perniagaan Terancang,Bangunan Penginapan,1.4470000000000001
