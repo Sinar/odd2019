@@ -10,3 +10,9 @@ gocsv - https://github.com/DataFoxCo/gocsv
 DataCurator - https://github.com/ODIQueensland/data-curator 
 
 * Setup: Download from Release tab and install
+
+## Instructions
+
+### Step 1: [CONVERTING](./CONVERTING.md)
+
+### Step 2: [CLEANING](./CLEANING.md)
