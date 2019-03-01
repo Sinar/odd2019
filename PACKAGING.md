@@ -6,7 +6,6 @@
 - HOWTO Video -  https://www.youtube.com/watch?v=VrdPj28-L9g
 
 ## Steps w/ DataPackage Creator
-
 - Go to DataPackage Creator - https://create.frictionlessdata.io/ 
 - Fill in Path + Load - https://raw.githubusercontent.com/Sinar/odd2019/master/workspace/3-analysis-csv/perlis-maklumat-bangunan-dan-blok.csv
 - Add the detected fields (e.g. change for year field)
@@ -16,4 +15,5 @@
 
 
 ## DataCurator
-- Start DataCurator and 
+- Start DataCurator and run any validation; add the Provenance info
+- Export into zip format suitable for distribution
