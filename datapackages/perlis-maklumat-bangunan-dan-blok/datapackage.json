@@ -3,7 +3,7 @@
   "resources": [
     {
       "name": "perlis-maklumat-bangunan-dan-blok",
-      "path": "https://raw.githubusercontent.com/Sinar/odd2019/master/workspace/3-analysis-csv/perlis-maklumat-bangunan-dan-blok.csv",
+      "path": "data/perlis-maklumat-bangunan-dan-blok.csv",
       "profile": "tabular-data-resource",
       "schema": {
         "fields": [
