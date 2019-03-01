@@ -1,0 +1,79 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "perlis-maklumat-bangunan-dan-blok",
+      "path": "https://raw.githubusercontent.com/Sinar/odd2019/master/workspace/3-analysis-csv/perlis-maklumat-bangunan-dan-blok.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "NEGERI",
+            "type": "string",
+            "format": "default",
+            "title": "State"
+          },
+          {
+            "name": "PPD",
+            "type": "string",
+            "format": "default",
+            "title": "District"
+          },
+          {
+            "name": "KODSEKOLAH",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "NAMASEKOLAH",
+            "type": "string",
+            "format": "default",
+            "title": "School Name"
+          },
+          {
+            "name": "TYPE",
+            "type": "string",
+            "format": "default",
+            "title": "School Type"
+          },
+          {
+            "name": "NAMABLOK",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "KEGUNAAN",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "TAHUN_BINA",
+            "type": "year",
+            "format": "default"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "bangunan sekolah"
+  ],
+  "name": "perlis-maklumat-bangunan-dan-blok",
+  "title": "Perlis - School + Blocks",
+  "homepage": "http://www.data.gov.my/data/ms_MY/dataset/maklumat-bangunan-dan-blok-sekolah",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "title": "Michael Leow",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "ODbL-1.0",
+      "title": "Open Data Commons Open Database License 1.0",
+      "path": "http://www.opendefinition.org/licenses/odc-odbl"
+    }
+  ],
+  "description": "Maklumat Bangunan dan Blok Sekolah\nDataset menunjukkan maklumat Bangunan dan Blok Sekolah seperti pada 31 Julai 2018"
+}

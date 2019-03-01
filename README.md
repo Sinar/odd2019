@@ -10,10 +10,6 @@ gocsv - https://github.com/DataFoxCo/gocsv
 DataPackage Creator - https://create.frictionlessdata.io/
 * Just go to the page and fill in the details; downloading the generated datapackage into the suggested form 
 
-DataCurator - https://github.com/ODIQueensland/data-curator 
-
-* Setup: Download from Release tab and install
-
 ## Instructions for Participants of ODD2019
 
 ### Step 1: [CONVERTING](./CONVERTING.md)
@@ -28,8 +24,12 @@ DataCurator - https://github.com/ODIQueensland/data-curator
 
 ## Other Tools
 
-Delimiter - 
-* Just go to the site (assumingn have Github account); very basic CSV data editor, no need to learn about git, pull-requests etc.
+DataCurator - https://github.com/ODIQueensland/data-curator 
+* Setup: Download from Release tab and install
 
 Datashare - https://datashare.icij.org/
 * Advanced tool usinng Docker to have a personal document management system, including English language NLP, and Entity extractions
+
+Delimiter - 
+* Just go to the site (assumingn have Github account); very basic CSV data editor, no need to learn about git, pull-requests etc.
+
