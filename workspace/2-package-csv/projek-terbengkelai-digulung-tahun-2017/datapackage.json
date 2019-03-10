@@ -1,0 +1,87 @@
+{
+    "profile": "tabular-data-package",
+    "resources": [
+        {
+            "profile": "tabular-data-resource",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Bil",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "NEGERI",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "PROJEK",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "PEMAJU / PELIKUIDASI",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "BIL. UNIT\n DIBINA",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "BIL. UNIT DIJUAL",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "TARIKH SEPATUT SIAP",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "TARIKH TERBENGKALAI",
+                        "type": "string",
+                        "format": "default"
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            },
+            "format": "csv",
+            "mediatype": "text/csv",
+            "dialect": {
+                "caseSensitiveHeader": false,
+                "delimiter": ",",
+                "doubleQuote": true,
+                "header": true,
+                "lineTerminator": "\r\n",
+                "quoteChar": "\"",
+                "skipInitialSpace": true
+            },
+            "licenses": [
+                {
+                    "name": "CC-BY-4.0",
+                    "title": "Creative Commons Attribution 4.0",
+                    "path": "https://creativecommons.org/licenses/by/4.0/"
+                }
+            ],
+            "name": "digulung0tahun-2017",
+            "path": "data/digulung-tahun-2017.csv"
+        }
+    ],
+    "licenses": [
+        {
+            "name": "CC-BY-4.0",
+            "title": "Creative Commons Attribution 4.0",
+            "path": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    ],
+    "name": "projek-perumahan-terbengkalai-yang-telah-digulung",
+    "title": "Projek Perumahan Terbengkalai Yang Telah Digulung - 2017",
+    "description": "Set data ini menerangkan tentang projek perumahan terbengkalai yang telah digulung\n\n",
+    "id": "projek-perumahan-terbengkalai-yang-telah-digulung"
+}
