@@ -13,3 +13,6 @@
 
 # Ignore Jupyter items
 .ipynb_checkpoints
+
+# Ignore direnv files
+.envrc*

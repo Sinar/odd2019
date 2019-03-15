@@ -1,0 +1,50 @@
+version: '1.0'
+steps:
+
+  perform_tests:
+    image: golang:latest
+    working_directory: ${{main_clone}}
+    description: Performing unit tests...
+    commands:
+      # Use GOMOD ;P simplify
+      # - mkdir -p /GOMOD/${{CF_REPO_OWNER}}
+      # - ln -s /codefresh/volume/${{CF_REPO_NAME}}/scrapers/OSCv3 /GOMOD/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}
+      - mkdir -p /GOMOD/OSCv3
+      - ln -s /codefresh/volume/${{CF_REPO_NAME}}/scrapers/OSCv3 /GOMOD/OSCv3
+      # Install pre-requisites and execute tests; not needed anymore ...
+      # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go get
+      # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go test
+      - cd /GOMOD/OSCv3 && go run ./cmd/oscv3.go
+
+  # build_image:
+  #   type: build
+  #   description: Building the image...
+  #   image_name: ${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}
+  #   tag: '${{CF_BRANCH}}'
+    
+  # launch_composition:
+  #   type: launch-composition
+  #   description: Launching an environment from a composition...
+  #   composition:
+  #     version: '2'
+  #     services:
+  #       prest:
+  #         image: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}:${{CF_BRANCH}}'
+  #         environment:
+  #           - PREST_PG_HOST=postgres
+  #           - PREST_PG_USER=prest
+  #           - PREST_PG_PASS=prest
+  #           - PREST_PG_DATABASE=prest
+  #           - PREST_PG_PORT=5432
+  #         depends_on:
+  #           - postgres
+  #         ports:
+  #           - '3000'
+  #       postgres:
+  #         image: mbrung/postgres-no-volume
+  #         environment:
+  #           - POSTGRES_USER=prest
+  #           - POSTGRES_DB=prest
+  #           - POSTGRES_PASSWORD=prest
+  #         ports:
+  #           - '5432'
