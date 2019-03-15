@@ -1,0 +1,184 @@
+{
+    "profile": "tabular-data-package",
+    "resources": [
+        {
+            "profile": "tabular-data-resource",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "DAERAH",
+                        "type": "string",
+                        "format": "default",
+                        "trueValues": [
+                            "true",
+                            "True",
+                            "TRUE",
+                            "1"
+                        ],
+                        "falseValues": [
+                            "false",
+                            "False",
+                            "FALSE",
+                            "0"
+                        ],
+                        "decimalChar": ".",
+                        "groupChar": "",
+                        "bareNumber": true
+                    },
+                    {
+                        "name": "TARIKH",
+                        "type": "string",
+                        "format": "default",
+                        "trueValues": [
+                            "true",
+                            "True",
+                            "TRUE",
+                            "1"
+                        ],
+                        "falseValues": [
+                            "false",
+                            "False",
+                            "FALSE",
+                            "0"
+                        ],
+                        "decimalChar": ".",
+                        "groupChar": "",
+                        "bareNumber": true
+                    },
+                    {
+                        "name": "BUTIRAN",
+                        "type": "string",
+                        "format": "default",
+                        "trueValues": [
+                            "true",
+                            "True",
+                            "TRUE",
+                            "1"
+                        ],
+                        "falseValues": [
+                            "false",
+                            "False",
+                            "FALSE",
+                            "0"
+                        ],
+                        "decimalChar": ".",
+                        "groupChar": "",
+                        "bareNumber": true
+                    },
+                    {
+                        "name": "LOKASI",
+                        "type": "string",
+                        "format": "default",
+                        "trueValues": [
+                            "true",
+                            "True",
+                            "TRUE",
+                            "1"
+                        ],
+                        "falseValues": [
+                            "false",
+                            "False",
+                            "FALSE",
+                            "0"
+                        ],
+                        "decimalChar": ".",
+                        "groupChar": "",
+                        "bareNumber": true
+                    },
+                    {
+                        "name": "PUNCA-PUNCA PENCEMARAN",
+                        "type": "string",
+                        "format": "default",
+                        "trueValues": [
+                            "true",
+                            "True",
+                            "TRUE",
+                            "1"
+                        ],
+                        "falseValues": [
+                            "false",
+                            "False",
+                            "FALSE",
+                            "0"
+                        ],
+                        "decimalChar": ".",
+                        "groupChar": "",
+                        "bareNumber": true
+                    },
+                    {
+                        "name": "LANGKAH YANG DI AMBIL",
+                        "type": "string",
+                        "format": "default",
+                        "trueValues": [
+                            "true",
+                            "True",
+                            "TRUE",
+                            "1"
+                        ],
+                        "falseValues": [
+                            "false",
+                            "False",
+                            "FALSE",
+                            "0"
+                        ],
+                        "decimalChar": ".",
+                        "groupChar": "",
+                        "bareNumber": true
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            },
+            "format": "csv",
+            "mediatype": "text/csv",
+            "dialect": {
+                "caseSensitiveHeader": false,
+                "delimiter": ",",
+                "doubleQuote": true,
+                "header": true,
+                "lineTerminator": "\r\n",
+                "quoteChar": "\"",
+                "skipInitialSpace": true
+            },
+            "licenses": [
+                {
+                    "name": "ODbL-1.0",
+                    "title": "Open Data Commons Open Database License 1.0",
+                    "path": "https://opendefinition.org/licenses/odc-odbl"
+                }
+            ],
+            "name": "laporan-pencemaran-sungai-penang-2014-2015-2016",
+            "title": "Laporan Pecemaran Sungai for year 2014/2015/2016",
+            "description": "From Freedom of Information Enactment (FOIE) filing done in 2016 to JPS - Jabatan Pengairan dan Saliran",
+            "path": "data/3-laporan-pencemaran-sungai-penang-2014-2015-2016-struct.csv"
+        }
+    ],
+    "contributors": [
+        {
+            "title": "Michael Leow",
+            "path": "",
+            "email": "leow@sinarproject.org",
+            "role": "maintainer",
+            "organization": "Sinar Project"
+        }
+    ],
+    "licenses": [
+        {
+            "name": "ODbL-1.0",
+            "title": "Open Data Commons Open Database License 1.0",
+            "path": "https://opendefinition.org/licenses/odc-odbl"
+        }
+    ],
+    "sources": [
+        {
+            "title": "FOIE from Penang Gov 2016",
+            "path": "",
+            "email": ""
+        }
+    ],
+    "name": "laporan-pencemaran-sungai-penang-2014-2015-2016",
+    "title": "Laporan Pecemaran Sungai for year 2014/2015/2016",
+    "description": "From Freedom of Information Enactment (FOIE) filing done in 2016 to JPS - Jabatan Pengairan dan Saliran"
+}
