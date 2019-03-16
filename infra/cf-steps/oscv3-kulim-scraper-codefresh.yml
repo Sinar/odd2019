@@ -11,10 +11,11 @@ steps:
       # - ln -s /codefresh/volume/${{CF_REPO_NAME}}/scrapers/OSCv3 /GOMOD/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}
       - mkdir -p /GOMOD
       - ln -s /codefresh/volume/${{CF_REPO_NAME}}/scrapers/OSCv3 /GOMOD
+      - pwd
       # Install pre-requisites and execute tests; not needed anymore ...
       # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go get
       # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go test
-      - cd /GOMOD/OSCv3/cmd && env && go run oscv3.go
+      - cd /GOMOD/OSCv3 && env && go run cmd/oscv3.go
 
   # build_image:
   #   type: build
