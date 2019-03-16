@@ -28,6 +28,7 @@ steps:
     commands:
       - ls
       - env && ./oscv3
+      - ls -lR raw
 
   # build_image:
   #   type: build
