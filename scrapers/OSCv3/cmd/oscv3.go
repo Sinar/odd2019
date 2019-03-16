@@ -41,8 +41,9 @@ func BasicCollyFromRaw() {
 	// Removing the extra cost of network and being blocked ..
 	var currentDateLabel = "20190316"
 	var uniqueSearchID = "penang-kulim-0212"
+	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
 	// NOTE: Won't work on Windoze :(
-	var absoluteRawDataPath = fmt.Sprintf("raw/%s/%s", currentDateLabel, uniqueSearchID)
+	var absoluteRawDataPath = fmt.Sprintf("%s/raw/%s/%s", volumePrefix, currentDateLabel, uniqueSearchID)
 	rawDataFolderSetup(absoluteRawDataPath)
 
 	// With pre-reqs setup; we can proceed ...

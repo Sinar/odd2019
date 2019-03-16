@@ -1,10 +1,10 @@
 version: '1.0'
 steps:
 
-  perform_tests:
+  build_bin:
     image: golang:latest
     working_directory: ${{main_clone}}
-    description: Performing unit tests...
+    description: Building binary...
     commands:
       # Use GOMOD ;P simplify
       # - mkdir -p /GOMOD/${{CF_REPO_OWNER}}
@@ -15,7 +15,19 @@ steps:
       # Install pre-requisites and execute tests; not needed anymore ...
       # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go get
       # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go test
-      - cd /GOMOD/OSCv3 && env && go run cmd/oscv3.go
+      - cd /GOMOD/OSCv3 && env && go build cmd/oscv3.go && mv oscv3 /codefresh/volume/.
+    when:
+      condition:
+        all:
+          webhook: '"${{CF_BUILD_TRIGGER}}" == "webhook"'
+ 
+  perform_tests:
+    image: golang:latest
+    working_directory: /codefresh/volume/
+    description: Performing unit tests...
+    commands:
+      - ls
+      - env && ./oscv3
 
   # build_image:
   #   type: build

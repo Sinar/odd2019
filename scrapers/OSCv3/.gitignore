@@ -1,3 +1,5 @@
 # Ignore Raw Scraped HTML files
 raw
 
+# Ignore the binaries
+oscv3
