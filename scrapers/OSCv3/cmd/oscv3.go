@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"fmt"
@@ -10,11 +10,6 @@ import (
 	"github.com/gocolly/colly/queue"
 	"github.com/y0ssar1an/q"
 )
-
-func main() {
-	fmt.Println("Welcome to GOMOD OSCv3!!")
-	BasicCollyFromRaw()
-}
 
 func rawDataFolderSetup(absoluteRawDataPath string) (proceedScraping bool) {
 	fi, lerr := os.Stat(absoluteRawDataPath)

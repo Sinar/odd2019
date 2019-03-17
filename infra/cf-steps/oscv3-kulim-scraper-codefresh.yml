@@ -15,7 +15,7 @@ steps:
       # Install pre-requisites and execute tests; not needed anymore ...
       # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go get
       # - cd /go/src/github.com/${{CF_REPO_OWNER}}/${{CF_REPO_NAME}} && go test
-      - cd /GOMOD/OSCv3 && env && go build cmd/oscv3.go && mv oscv3 /codefresh/volume/.
+      - cd /GOMOD/OSCv3 && env && go build -o oscv3 . && mv oscv3 /codefresh/volume/.
     when:
       condition:
         all:
