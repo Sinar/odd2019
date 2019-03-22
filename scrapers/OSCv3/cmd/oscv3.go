@@ -37,15 +37,36 @@ func rawDataFolderSetup(absoluteRawDataPath string) (proceedScraping bool) {
 	return false
 }
 
+func mapAuthorityToDirectory(authorityID string) string {
+	var directoryName string
+	switch authorityID {
+	case "1003":
+		fmt.Println("MBPJ!!")
+		directoryName = fmt.Sprintf("selangor-mbpj-%s", authorityID)
+	case "0212":
+		fmt.Println("KULIM!!")
+		directoryName = fmt.Sprintf("penang-kulim-%s", authorityID)
+	default:
+		fmt.Println("INVALID AUTHORITY: ", authorityID, " Maybe 1003 for MBPJ??")
+		panic("BAD AUTHORITY!!!")
+	}
+
+	return directoryName
+}
+
 // BasicCollyFromRaw is meant to read data from fixtures and extract out data ..
-func BasicCollyFromRaw() {
+func BasicCollyFromRaw(authorityToScrape string) {
+	fmt.Println("ACTION: BasicCollyFromRaw for Authority - ", authorityToScrape)
 	// From the collection; can run another round while tweaking the strcuture
 	// Removing the extra cost of network and being blocked ..
 	var currentDateLabel = time.Now().Format("20060102") // "20190316"
-	var uniqueSearchID = "penang-kulim-0212"
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
 	// NOTE: Won't work on Windoze :(
 	var absoluteRawDataPath = fmt.Sprintf("%s/raw/%s/%s", volumePrefix, currentDateLabel, uniqueSearchID)
+	// Start with the seedURL to kick things off
+	// TODO: Use the helper sling to make it better for API caller?
+	seedURL := fmt.Sprintf("http://www.epbt.gov.my/osc/Carian_Proj3.cfm?CurrentPage=1&Maxrows=2&Cari=&AgensiKod=%s&Pilih=3", authorityToScrape)
 
 	// go, no go?
 	proceedScraping := rawDataFolderSetup(absoluteRawDataPath)
@@ -94,8 +115,6 @@ func BasicCollyFromRaw() {
 			queue.Run(d)
 		})
 
-		// Start with the seedURL to kick things off
-		seedURL := "http://www.epbt.gov.my/osc/Carian_Proj3.cfm?CurrentPage=1&Maxrows=2&Cari=&AgensiKod=0212&Pilih=3"
 		verr := c.Visit(seedURL)
 		if verr != nil {
 			panic(verr)
