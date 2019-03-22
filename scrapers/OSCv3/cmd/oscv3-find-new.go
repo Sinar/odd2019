@@ -4,11 +4,29 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
+	"strconv"
+	"strings"
 
+	"github.com/PuerkitoBio/goquery"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
+	"github.com/y0ssar1an/q"
 )
+
+// ApplicationRecord has details
+type ApplicationRecord struct {
+	bil int
+	id  string
+}
+
+// ApplicationSnapshot shows history
+type ApplicationSnapshot struct {
+	snapshotLabel string
+	appRecords    []ApplicationRecord
+}
 
 func loadMetaData() {
 	// IN yaml format
@@ -42,6 +60,82 @@ func extractAllData(pagesToExtract []string) {
 	t.RegisterProtocol("file", http.NewFileTransport(http.Dir("/")))
 	c.WithTransport(t)
 
+	idOrder := make([]string, 0, 100)
+	appSnapshot := ApplicationSnapshot{
+		snapshotLabel: "d3adb33f",
+	}
+	// Gather all the Records ..
+	appRecords := make([]ApplicationRecord, 0)
+
+	c.OnHTML("html body table tbody tr td table tbody tr td table tbody tr td table tbody tr", func(e *colly.HTMLElement) {
+		// Every row of data ..
+		e.DOM.Each(func(i int, s *goquery.Selection) {
+			appRecord := ApplicationRecord{}
+			//q.Q("ID:", i, " DATA:", s.Text())
+			var isValid bool
+			// Each column
+			s.Children().Each(func(j int, c *goquery.Selection) {
+				isValid = true
+				// Bil
+				// Nama Projek
+				// No. Lot
+				// Mukim
+				// Link
+				if j == 0 {
+					// q.Q("BIL: ", c.Text())
+					bil, err := strconv.Atoi(c.Text())
+					if err != nil {
+						fmt.Println("ERR:", err)
+						isValid = false
+					}
+					appRecord.bil = bil
+				} else if j == 1 {
+					// q.Q("PROJEK: ", c.Text())
+				} else if j == 2 {
+					// q.Q("LOT: ", c.Text())
+				} else if j == 3 {
+					// q.Q("MUKIM: ", c.Text())
+				} else if j == 4 {
+					// Name is Unique Identifier
+					id := c.Find("a").Map(func(_ int, m *goquery.Selection) string {
+						href, _ := m.Attr("href")
+						idURL, err := url.Parse(href)
+						if err != nil {
+							panic(err)
+						}
+						return idURL.Query().Get("Name")
+					})
+					if len(id) > 0 && isValid {
+						idOrder = append(idOrder, strings.Join(id, ""))
+						q.Q("ID: ", id)
+						appRecord.id = strings.Join(id, "")
+						appRecords = append(appRecords, appRecord)
+					}
+					// What is S?
+					q.Q("TYPE: ", c.Find("a").Map(func(_ int, m *goquery.Selection) string {
+						href, _ := m.Attr("href")
+						idURL, err := url.Parse(href)
+						if err != nil {
+							panic(err)
+						}
+						return idURL.Query().Get("S")
+					}))
+
+				} else {
+					q.Q("UNKNOWN:", c)
+				}
+			})
+
+		})
+
+		// e.ForEachWithBreak("td", func(_ int, row *colly.HTMLElement) bool {
+		// 	spew.Dump(row.ChildText("*"))
+		// 	// return false
+		// 	return true
+		// })
+
+	})
+
 	c.OnScraped(func(r *colly.Response) {
 		// Next time; queue the further extraction of item?
 		// spew.Println(r.StatusCode)
@@ -59,11 +153,19 @@ func extractAllData(pagesToExtract []string) {
 			// panic(verr)
 			fmt.Println("ERR:", verr.Error())
 		}
+		// DEBUG
+		break
 	}
 
 	c.Wait() // Barrier for aync; so we can go as fast as opossible ..
 	// Sort the final based on the BIL as Int
 	// Then iterate until the last observed item is matched!
+	// Whats doe sit look like?
+	// DEBUG
+	// fmt.Println(strings.TrimSpace(strings.Join(idOrder, ",")))
+	appSnapshot.appRecords = appRecords
+	spew.Dump(appSnapshot)
+
 }
 
 // FindNewRequests will look for the changes since the last time run and offer a pull request
@@ -100,15 +202,7 @@ func FindNewRequests(authorityToScrape string) {
 			pages = append(pages, path)
 		}
 	}
-	// fmt.Println("=============================++******")
-	// sort.Strings(pages)
-	// fmt.Println(pages)
-	// filepath.Walk(absoluteRawDataPath, func(path string, info os.FileInfo, err error) error {
-	// 	if !info.IsDir() {
-	// 		fmt.Println("PATh: ", path)
-	// 	}
-	// 	return nil
-	// })
+	// Extract the Snapshot data from newest pages
 	extractAllData(pages)
 	// If in Codefresh; do a branch, git add + commit?
 	fmt.Println("Now compare against the previous: ", previousDateLabel)
