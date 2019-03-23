@@ -47,7 +47,7 @@ func extractDataFromPage() {
 
 }
 
-func extractAllData(pagesToExtract []string) {
+func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 	// Loop in the whole identified folder ..
 	// and run extractDataFromPage
 	c := colly.NewCollector(
@@ -61,9 +61,6 @@ func extractAllData(pagesToExtract []string) {
 	c.WithTransport(t)
 
 	idOrder := make([]string, 0, 100)
-	appSnapshot := ApplicationSnapshot{
-		snapshotLabel: "d3adb33f",
-	}
 	// Gather all the Records ..
 	appRecords := make([]ApplicationRecord, 0)
 
@@ -75,6 +72,7 @@ func extractAllData(pagesToExtract []string) {
 			var isValid bool
 			// Each column
 			s.Children().Each(func(j int, c *goquery.Selection) {
+				// To track if need to ignore bad rows (e.g. like header ..)
 				isValid = true
 				// Bil
 				// Nama Projek
@@ -105,6 +103,8 @@ func extractAllData(pagesToExtract []string) {
 						}
 						return idURL.Query().Get("Name")
 					})
+					// TODO: What if has bad data; should match regexp at least?
+					// Or use atoi again? if cannot convert; ignore??
 					if len(id) > 0 && isValid {
 						idOrder = append(idOrder, strings.Join(id, ""))
 						q.Q("ID: ", id)
@@ -164,8 +164,6 @@ func extractAllData(pagesToExtract []string) {
 	// DEBUG
 	// fmt.Println(strings.TrimSpace(strings.Join(idOrder, ",")))
 	appSnapshot.appRecords = appRecords
-	spew.Dump(appSnapshot)
-
 }
 
 // FindNewRequests will look for the changes since the last time run and offer a pull request
@@ -174,13 +172,21 @@ func FindNewRequests(authorityToScrape string) {
 	// Figure out when was the last successful run and if not exist; create it!
 	// Also will reset if passed a flag of some sort?
 	// var currentDateLabel = time.Now().Format("20060102") // "20190316"
-	var currentDateLabel = "20190322"
-	var previousDateLabel = "20190317"
-	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
-	// NOTE: Won't work on Windoze :(
-	var absoluteRawDataPath = fmt.Sprintf("%s/raw/%s/%s", volumePrefix, currentDateLabel, uniqueSearchID)
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
+	// Refactor  out the currentDate
+	var currentDateLabel = "20190322"
+	extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
+	// If in Codefresh; do a branch, git add + commit?
+	// Refactor out the previousDate
+	var previousDateLabel = "20190317"
+	fmt.Println("Now compare against the previous: ", previousDateLabel)
+	extractDataFromSnapshot(volumePrefix, previousDateLabel, uniqueSearchID)
+}
+
+func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSearchID string) {
+	var absoluteRawDataPath = fmt.Sprintf("%s/raw/%s/%s", volumePrefix, snapshotLabel, uniqueSearchID)
 	dir, err := os.Getwd()
 	if err != nil {
 		panic(err)
@@ -203,7 +209,14 @@ func FindNewRequests(authorityToScrape string) {
 		}
 	}
 	// Extract the Snapshot data from newest pages
-	extractAllData(pages)
-	// If in Codefresh; do a branch, git add + commit?
-	fmt.Println("Now compare against the previous: ", previousDateLabel)
+	appSnapshot := &ApplicationSnapshot{
+		snapshotLabel: snapshotLabel,
+	}
+
+	extractAllData(appSnapshot, pages)
+
+	// Persist snapshot into YAML?
+	// TODO: OUtput as yaml??
+	spew.Dump(appSnapshot)
+
 }
