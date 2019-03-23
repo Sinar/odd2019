@@ -12,14 +12,24 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/y0ssar1an/q"
 )
 
 // ApplicationRecord has details
 type ApplicationRecord struct {
-	bil int
-	id  string
+	// Bil
+	// Nama Projek
+	// No. Lot
+	// Mukim
+	// Link --> url
+	bil    int
+	id     string
+	projek string
+	lot    string
+	mukim  string
+	url    string
 }
 
 // ApplicationRecords will be used to sort by BIL field
@@ -99,16 +109,20 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 					// q.Q("BIL: ", c.Text())
 					bil, err := strconv.Atoi(c.Text())
 					if err != nil {
-						fmt.Println("ERR:", err)
+						// DEBUG
+						// fmt.Println("ERR:", err)
 						isValid = false
 					}
 					appRecord.bil = bil
 				} else if j == 1 {
 					// q.Q("PROJEK: ", c.Text())
+					appRecord.projek = c.Text()
 				} else if j == 2 {
 					// q.Q("LOT: ", c.Text())
+					appRecord.lot = c.Text()
 				} else if j == 3 {
 					// q.Q("MUKIM: ", c.Text())
+					appRecord.mukim = c.Text()
 				} else if j == 4 {
 					// Name is Unique Identifier
 					id := c.Find("a").Map(func(_ int, m *goquery.Selection) string {
@@ -123,25 +137,29 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 					// Or use atoi again? if cannot convert; ignore??
 					if len(id) > 0 && isValid {
 						idOrder = append(idOrder, strings.Join(id, ""))
-						q.Q("ID: ", id)
+						// DEBUG
+						// q.Q("ID: ", id)
+						// What is S?
+						q.Q("TYPE: ", c.Find("a").Map(func(_ int, m *goquery.Selection) string {
+							href, _ := m.Attr("href")
+							idURL, err := url.Parse(href)
+							if err != nil {
+								panic(err)
+							}
+							appRecord.url = href
+							//DEBUG
+							// fmt.Println(appRecord.url)
+							return idURL.Query().Get("S")
+						}))
+
 						appRecord.id = strings.Join(id, "")
 						appRecords = append(appRecords, appRecord)
 					}
-					// What is S?
-					q.Q("TYPE: ", c.Find("a").Map(func(_ int, m *goquery.Selection) string {
-						href, _ := m.Attr("href")
-						idURL, err := url.Parse(href)
-						if err != nil {
-							panic(err)
-						}
-						return idURL.Query().Get("S")
-					}))
 
 				} else {
 					q.Q("UNKNOWN:", c)
 				}
 			})
-
 		})
 
 		// e.ForEachWithBreak("td", func(_ int, row *colly.HTMLElement) bool {
@@ -155,7 +173,8 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 	c.OnScraped(func(r *colly.Response) {
 		// Next time; queue the further extraction of item?
 		// spew.Println(r.StatusCode)
-		fmt.Println("DONE!  CODE:", r.StatusCode)
+		// DEBUG
+		// fmt.Println("DONE!  CODE:", r.StatusCode)
 	})
 
 	// Example finalURL will be like below:
@@ -259,6 +278,9 @@ func FindNewRequests(authorityToScrape string) {
 			if singleRecord.id == firstOldID {
 				foundOldID = true
 				fmt.Println("FOUND IT!! ID: ", firstOldID)
+			} else {
+				// What to do with the new entries??
+				spew.Dump(singleRecord)
 			}
 		}
 	}
