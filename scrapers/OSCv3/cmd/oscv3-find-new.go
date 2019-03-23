@@ -7,11 +7,11 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/y0ssar1an/q"
 )
@@ -22,10 +22,26 @@ type ApplicationRecord struct {
 	id  string
 }
 
+// ApplicationRecords will be used to sort by BIL field
+// which will be the smallest number first on the top
+type ApplicationRecords []ApplicationRecord
+
+func (ar ApplicationRecords) Len() int {
+	return len(ar)
+}
+
+func (ar ApplicationRecords) Less(i, j int) bool {
+	return ar[i].bil < ar[j].bil
+}
+
+func (ar ApplicationRecords) Swap(i, j int) {
+	ar[i], ar[j] = ar[j], ar[i]
+}
+
 // ApplicationSnapshot shows history
 type ApplicationSnapshot struct {
 	snapshotLabel string
-	appRecords    []ApplicationRecord
+	appRecords    ApplicationRecords
 }
 
 func loadMetaData() {
@@ -154,7 +170,7 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 			fmt.Println("ERR:", verr.Error())
 		}
 		// DEBUG
-		break
+		// break
 	}
 
 	c.Wait() // Barrier for aync; so we can go as fast as opossible ..
@@ -166,26 +182,7 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 	appSnapshot.appRecords = appRecords
 }
 
-// FindNewRequests will look for the changes since the last time run and offer a pull request
-func FindNewRequests(authorityToScrape string) {
-	fmt.Println("ACTION: FindNewRequests")
-	// Figure out when was the last successful run and if not exist; create it!
-	// Also will reset if passed a flag of some sort?
-	// var currentDateLabel = time.Now().Format("20060102") // "20190316"
-	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
-	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
-
-	// Refactor  out the currentDate
-	var currentDateLabel = "20190322"
-	extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
-	// If in Codefresh; do a branch, git add + commit?
-	// Refactor out the previousDate
-	var previousDateLabel = "20190317"
-	fmt.Println("Now compare against the previous: ", previousDateLabel)
-	extractDataFromSnapshot(volumePrefix, previousDateLabel, uniqueSearchID)
-}
-
-func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSearchID string) {
+func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSearchID string) *ApplicationSnapshot {
 	var absoluteRawDataPath = fmt.Sprintf("%s/raw/%s/%s", volumePrefix, snapshotLabel, uniqueSearchID)
 	dir, err := os.Getwd()
 	if err != nil {
@@ -217,6 +214,52 @@ func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSe
 
 	// Persist snapshot into YAML?
 	// TODO: OUtput as yaml??
-	spew.Dump(appSnapshot)
+	// spew.Dump(appSnapshot)
+	sort.Sort(appSnapshot.appRecords)
+	// DEBUG
+	// for _, singleRecord := range appSnapshot.appRecords {
+	// 	fmt.Printf("%s,", singleRecord.id)
+	// }
 
+	return appSnapshot
+}
+
+// FindNewRequests will look for the changes since the last time run and offer a pull request
+func FindNewRequests(authorityToScrape string) {
+	fmt.Println("ACTION: FindNewRequests")
+	// Figure out when was the last successful run and if not exist; create it!
+	// Also will reset if passed a flag of some sort?
+	// var currentDateLabel = time.Now().Format("20060102") // "20190316"
+	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
+
+	// Refactor  out the currentDate
+	var currentDateLabel = "20190322"
+	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
+	// If in Codefresh; do a branch, git add + commit?
+	// Refactor out the previousDate
+	var previousDateLabel = "20190317"
+	fmt.Println("Now compare against the previous: ", previousDateLabel)
+	previousSnapshot := extractDataFromSnapshot(volumePrefix, previousDateLabel, uniqueSearchID)
+
+	// Now iterate and compare until the first match
+	// then check if the diffs are there ..
+	var foundOldID bool
+	var previousIDIndex int
+	firstOldID := previousSnapshot.appRecords[previousIDIndex].id
+	for _, singleRecord := range currentSnapshot.appRecords {
+		if foundOldID {
+			previousIDIndex++
+			if singleRecord.id != previousSnapshot.appRecords[previousIDIndex].id {
+				fmt.Println("ERR: ID: ", singleRecord.id, " NOT matching ", previousSnapshot.appRecords[previousIDIndex].id)
+			}
+		} else {
+			// Show visually which is it ..
+			fmt.Printf("%s,", singleRecord.id)
+			if singleRecord.id == firstOldID {
+				foundOldID = true
+				fmt.Println("FOUND IT!! ID: ", firstOldID)
+			}
+		}
+	}
 }
