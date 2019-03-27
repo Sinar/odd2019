@@ -22,6 +22,7 @@ func rawDataFolderSetup(absoluteRawDataPath string) (proceedScraping bool) {
 			}
 			return true
 		}
+		panic(lerr)
 	} else {
 		// spew.Dump(fi)
 		if !fi.IsDir() {
@@ -30,8 +31,6 @@ func rawDataFolderSetup(absoluteRawDataPath string) (proceedScraping bool) {
 		fmt.Println("Directory ", absoluteRawDataPath, " EXISTS!!")
 		// When the folder already exist for the day, no need to proceed
 		fmt.Println("Skipping... ")
-		// Should turn to false once tested .. no need to re-run
-		// return true
 	}
 
 	return false

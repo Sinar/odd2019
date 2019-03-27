@@ -15,24 +15,26 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/y0ssar1an/q"
+
+	"gopkg.in/yaml.v2"
 )
 
 // ApplicationRecord has details
 type ApplicationRecord struct {
-	// Bil
+	// bil
 	// Nama Projek
 	// No. Lot
 	// Mukim
-	// Link --> url
+	// Link --> URL
 	bil    int
-	id     string
-	projek string
-	lot    string
-	mukim  string
-	url    string
+	ID     string
+	Projek string
+	Lot    string
+	Mukim  string
+	URL    string
 }
 
-// ApplicationRecords will be used to sort by BIL field
+// ApplicationRecords will be used to sort by bil field
 // which will be the smallest number first on the top
 type ApplicationRecords []ApplicationRecord
 
@@ -62,15 +64,8 @@ func loadMetaData() {
 func saveMetaData() {
 	// In yaml format
 	// saves the first unique ID seen; assuming this is called once it is successful!
-}
-
-func saveData() {
-	//IN yaml format
-
-}
-
-func extractDataFromPage() {
-
+	// Sorted by ApplicationID; new items to be added?
+	// Remove those we found to be ok new ..
 }
 
 func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
@@ -100,13 +95,13 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 			s.Children().Each(func(j int, c *goquery.Selection) {
 				// To track if need to ignore bad rows (e.g. like header ..)
 				isValid = true
-				// Bil
+				// bil
 				// Nama Projek
 				// No. Lot
 				// Mukim
 				// Link
 				if j == 0 {
-					// q.Q("BIL: ", c.Text())
+					// q.Q("bil: ", c.Text())
 					bil, err := strconv.Atoi(c.Text())
 					if err != nil {
 						// DEBUG
@@ -115,14 +110,14 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 					}
 					appRecord.bil = bil
 				} else if j == 1 {
-					// q.Q("PROJEK: ", c.Text())
-					appRecord.projek = c.Text()
+					// q.Q("Projek: ", c.Text())
+					appRecord.Projek = c.Text()
 				} else if j == 2 {
-					// q.Q("LOT: ", c.Text())
-					appRecord.lot = c.Text()
+					// q.Q("Lot: ", c.Text())
+					appRecord.Lot = c.Text()
 				} else if j == 3 {
-					// q.Q("MUKIM: ", c.Text())
-					appRecord.mukim = c.Text()
+					// q.Q("Mukim: ", c.Text())
+					appRecord.Mukim = c.Text()
 				} else if j == 4 {
 					// Name is Unique Identifier
 					id := c.Find("a").Map(func(_ int, m *goquery.Selection) string {
@@ -146,13 +141,13 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 							if err != nil {
 								panic(err)
 							}
-							appRecord.url = href
+							appRecord.URL = href
 							//DEBUG
-							// fmt.Println(appRecord.url)
+							// fmt.Println(appRecord.URL)
 							return idURL.Query().Get("S")
 						}))
 
-						appRecord.id = strings.Join(id, "")
+						appRecord.ID = strings.Join(id, "")
 						appRecords = append(appRecords, appRecord)
 					}
 
@@ -179,8 +174,8 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 
 	// Example finalURL will be like below:
 	// finalURL := "file:///Users/leow/GOMOD/odd2019/scrapers/OSCv3/raw/20190322/selangor-mbpj-1003/_osc_Carian_Proj3.cfm_CurrentPage_10_Maxrows_15_Cari_AgensiKod_1003_Pilih_3.html"
-	for _, url := range pagesToExtract {
-		finalURL := fmt.Sprintf("file://%s", url)
+	for _, URL := range pagesToExtract {
+		finalURL := fmt.Sprintf("file://%s", URL)
 		// DEBUG
 		// fmt.Println("FILE: ", finalURL)
 		verr := c.Visit(finalURL)
@@ -193,7 +188,7 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 	}
 
 	c.Wait() // Barrier for aync; so we can go as fast as opossible ..
-	// Sort the final based on the BIL as Int
+	// Sort the final based on the bil as Int
 	// Then iterate until the last observed item is matched!
 	// Whats doe sit look like?
 	// DEBUG
@@ -237,7 +232,7 @@ func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSe
 	sort.Sort(appSnapshot.appRecords)
 	// DEBUG
 	// for _, singleRecord := range appSnapshot.appRecords {
-	// 	fmt.Printf("%s,", singleRecord.id)
+	// 	fmt.Printf("%s,", singleRecord.ID)
 	// }
 
 	return appSnapshot
@@ -253,7 +248,7 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20190322"
+	var currentDateLabel = "20190327"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate
@@ -263,25 +258,70 @@ func FindNewRequests(authorityToScrape string) {
 
 	// Now iterate and compare until the first match
 	// then check if the diffs are there ..
+	var newAppRecords []ApplicationRecord
 	var foundOldID bool
 	var previousIDIndex int
-	firstOldID := previousSnapshot.appRecords[previousIDIndex].id
+	firstOldID := previousSnapshot.appRecords[previousIDIndex].ID
 	for _, singleRecord := range currentSnapshot.appRecords {
 		if foundOldID {
 			previousIDIndex++
-			if singleRecord.id != previousSnapshot.appRecords[previousIDIndex].id {
-				fmt.Println("ERR: ID: ", singleRecord.id, " NOT matching ", previousSnapshot.appRecords[previousIDIndex].id)
+			if singleRecord.ID != previousSnapshot.appRecords[previousIDIndex].ID {
+				fmt.Println("ERR: ID: ", singleRecord.ID, " NOT matching ", previousSnapshot.appRecords[previousIDIndex].ID)
 			}
 		} else {
 			// Show visually which is it ..
-			fmt.Printf("%s,", singleRecord.id)
-			if singleRecord.id == firstOldID {
+			fmt.Printf("%s,", singleRecord.ID)
+			if singleRecord.ID == firstOldID {
 				foundOldID = true
 				fmt.Println("FOUND IT!! ID: ", firstOldID)
 			} else {
-				// What to do with the new entries??
-				spew.Dump(singleRecord)
+				// What to do with the new entries?? save it for further use later ..
+				// spew.Dump(singleRecord)
+				newAppRecords = append(newAppRecords, singleRecord)
 			}
 		}
 	}
+	// Calculate absoluteRawDataPath
+	// Persist it; along with Github?
+	uniqueSearchID = fmt.Sprintf("%s-%s_%s", uniqueSearchID, currentSnapshot.snapshotLabel, previousSnapshot.snapshotLabel)
+	saveData(uniqueSearchID, newAppRecords)
+}
+
+func saveData(uniqueSearchID string, newAppRecords []ApplicationRecord) {
+
+	type NewDiff struct {
+		Label string
+		AR    []ApplicationRecord `yaml:"new"`
+	}
+	//IN yaml format
+	if len(newAppRecords) == 0 {
+		// Nothing to be done ..
+		fmt.Println("NOTHING to DO .. skipping!!")
+		return
+	}
+	// If detect env CF_REPO_NAME; we are in Codefresh and data is meant to be stored there?
+	// If in debugging mode; save in $TMPDIR?
+	// else use the data folder? or should it be raw?
+	// data/<uniqueSearchID>/new.yml <-- new data; including the details
+	// data/<uniqueSearchID>/metadata.yml <-- ONLY ApplicationID those open/active?
+	// data/<uniqueSearchID>/snapshot.yml <-- current snapshot of data ..
+	// data/<uniqueSearchID>/<ApplicationID>/..
+	// in debugging mode; no github action?
+
+	var absoluteRawDataPath = fmt.Sprintf("./data/%s", uniqueSearchID)
+	// Create parent data for metadata
+	rawDataFolderSetup(absoluteRawDataPath)
+
+	// Assume gets this far; just persist it!!
+	// Save ApplicationID??
+	b, err := yaml.Marshal(NewDiff{
+		Label: uniqueSearchID,
+		AR:    newAppRecords,
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	spew.Println(string(b))
+
 }
