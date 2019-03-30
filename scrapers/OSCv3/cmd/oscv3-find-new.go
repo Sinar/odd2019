@@ -12,7 +12,6 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/y0ssar1an/q"
 
@@ -56,19 +55,7 @@ type ApplicationSnapshot struct {
 	appRecords    ApplicationRecords
 }
 
-func loadMetaData() {
-	// IN yaml format
-	// Tells us the last unique ID that was processed/seen
-}
-
-func saveMetaData() {
-	// In yaml format
-	// saves the first unique ID seen; assuming this is called once it is successful!
-	// Sorted by ApplicationID; new items to be added?
-	// Remove those we found to be ok new ..
-}
-
-func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
+func extractAllApplicationData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 	// Loop in the whole identified folder ..
 	// and run extractDataFromPage
 	c := colly.NewCollector(
@@ -224,7 +211,7 @@ func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSe
 		snapshotLabel: snapshotLabel,
 	}
 
-	extractAllData(appSnapshot, pages)
+	extractAllApplicationData(appSnapshot, pages)
 
 	// Persist snapshot into YAML?
 	// TODO: OUtput as yaml??
@@ -283,37 +270,26 @@ func FindNewRequests(authorityToScrape string) {
 	}
 	// Calculate absoluteRawDataPath
 	// Persist it; along with Github?
-	uniqueSearchID = fmt.Sprintf("%s-%s_%s", uniqueSearchID, currentSnapshot.snapshotLabel, previousSnapshot.snapshotLabel)
-	saveData(uniqueSearchID, newAppRecords)
+	snapshotDiffLabels := fmt.Sprintf("%s_%s", currentSnapshot.snapshotLabel, previousSnapshot.snapshotLabel)
+	saveData(uniqueSearchID, snapshotDiffLabels, newAppRecords)
 }
 
-func saveData(uniqueSearchID string, newAppRecords []ApplicationRecord) {
+func saveData(uniqueSearchID string, snapshotDiffLabels string, newAppRecords []ApplicationRecord) {
 
-	type NewDiff struct {
-		Label string
-		AR    []ApplicationRecord `yaml:"new"`
-	}
 	//IN yaml format
 	if len(newAppRecords) == 0 {
 		// Nothing to be done ..
 		fmt.Println("NOTHING to DO .. skipping!!")
 		return
 	}
-	// If detect env CF_REPO_NAME; we are in Codefresh and data is meant to be stored there?
-	// If in debugging mode; save in $TMPDIR?
-	// else use the data folder? or should it be raw?
-	// data/<uniqueSearchID>/new.yml <-- new data; including the details
-	// data/<uniqueSearchID>/metadata.yml <-- ONLY ApplicationID those open/active?
-	// data/<uniqueSearchID>/snapshot.yml <-- current snapshot of data ..
-	// data/<uniqueSearchID>/<ApplicationID>/..
-	// in debugging mode; no github action?
-
-	var absoluteRawDataPath = fmt.Sprintf("./data/%s", uniqueSearchID)
-	// Create parent data for metadata
-	rawDataFolderSetup(absoluteRawDataPath)
 
 	// Assume gets this far; just persist it!!
-	// Save ApplicationID??
+	// NewDiff strcuture defined ..
+	type NewDiff struct {
+		Label string
+		AR    []ApplicationRecord `yaml:"new"`
+	}
+	// Get those bytes out
 	b, err := yaml.Marshal(NewDiff{
 		Label: uniqueSearchID,
 		AR:    newAppRecords,
@@ -322,6 +298,37 @@ func saveData(uniqueSearchID string, newAppRecords []ApplicationRecord) {
 		panic(err)
 	}
 
-	spew.Println(string(b))
+	// If detect env CF_REPO_NAME; we are in Codefresh and data is meant to be stored there?
+	// If in debugging mode; save in $TMPDIR?
+	// else use the data folder? or should it be raw?
+	// data/<uniqueSearchID>/new.yml <-- new data; including the details
+
+	// DEBUG
+	// spew.Println(string(b))
+
+	// Open file and persist it into the format
+	// Metadata structure like ./data/<uniqueSearchID>-<snapshotDiffLabels>/new.yml
+	// e.g. ./data/selangor-mbpj-1003-20190330_20190317/new.yml
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s", uniqueSearchID)
+	rawDataFolderSetup(absoluteNewDataPath)
+	nerr := ioutil.WriteFile(fmt.Sprintf("%s/new.yml", absoluteNewDataPath), b, 0744)
+	if nerr != nil {
+		panic(nerr)
+	}
+
+	// but ALSO keep a copy at .. for easy access
+	// ./data/selangor-mbpj-1003/new.yml
+	var absoluteRawDataPath = fmt.Sprintf("./data/%s-%s", uniqueSearchID, snapshotDiffLabels)
+	// Create parent data for metadata
+	rawDataFolderSetup(absoluteRawDataPath)
+	werr := ioutil.WriteFile(fmt.Sprintf("%s/new.yml", absoluteRawDataPath), b, 0744)
+	if werr != nil {
+		panic(werr)
+	}
+
+	// data/<uniqueSearchID>/metadata.yml <-- ONLY ApplicationID those open/active?
+	// data/<uniqueSearchID>/snapshot.yml <-- current snapshot of data ..
+	// data/<uniqueSearchID>/<ApplicationID>/..
+	// in debugging mode; no github action?
 
 }
