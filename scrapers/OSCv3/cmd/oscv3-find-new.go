@@ -111,13 +111,13 @@ func extractAllData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 					appRecord.bil = bil
 				} else if j == 1 {
 					// q.Q("Projek: ", c.Text())
-					appRecord.Projek = c.Text()
+					appRecord.Projek = strings.TrimSpace(c.Text())
 				} else if j == 2 {
 					// q.Q("Lot: ", c.Text())
-					appRecord.Lot = c.Text()
+					appRecord.Lot = strings.TrimSpace(c.Text())
 				} else if j == 3 {
 					// q.Q("Mukim: ", c.Text())
-					appRecord.Mukim = c.Text()
+					appRecord.Mukim = strings.TrimSpace(c.Text())
 				} else if j == 4 {
 					// Name is Unique Identifier
 					id := c.Find("a").Map(func(_ int, m *goquery.Selection) string {
@@ -248,7 +248,7 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20190327"
+	var currentDateLabel = "20190330"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate
