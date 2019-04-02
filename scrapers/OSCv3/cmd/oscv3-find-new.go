@@ -55,6 +55,16 @@ type ApplicationSnapshot struct {
 	appRecords    ApplicationRecords
 }
 
+// ApplicationID is the primary lookup key for Applications
+type ApplicationID string
+
+// ApplicationTracking is to keep a look up on which items to be checked for any refresher
+type ApplicationTracking struct {
+	// ID - Application ID; used to look up
+	// Form URLs --> any Borang related to this Appllication; zero or more ..
+	IDs []ApplicationID
+}
+
 func extractAllApplicationData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
 	// Loop in the whole identified folder ..
 	// and run extractDataFromPage
@@ -225,6 +235,26 @@ func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSe
 	return appSnapshot
 }
 
+// FindAllApplications will
+//	if overridden with options of specific label or just newest
+//	process accordingly ..
+func FindAllApplications(authorityToScrape string, forceRefresh bool, specificLabel string) {
+
+	// if forceRefresh; empty the list
+	// else read from the existing structure and append it?
+	// build up the list
+
+	// persist the data into the data folder?
+}
+
+func saveApplicationTrackingData() {
+
+}
+
+func saveApplicationIDData() {
+
+}
+
 // FindNewRequests will look for the changes since the last time run and offer a pull request
 func FindNewRequests(authorityToScrape string) {
 	fmt.Println("ACTION: FindNewRequests")
@@ -235,7 +265,7 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20190330"
+	var currentDateLabel = "20190402"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate

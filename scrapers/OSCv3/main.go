@@ -21,6 +21,12 @@ func main() {
 	} else if *actionPtr == "diff" {
 		cmd.FindNewRequests(*authorityPtr)
 		return
+	} else if *actionPtr == "track" {
+		// use a specific option label like
+		forceRefresh := false
+		specificLabel := "20190317"
+		cmd.FindAllApplications(*authorityPtr, forceRefresh, specificLabel)
+		return
 	}
 
 	fmt.Println("INVALID ACTION: ", *actionPtr)

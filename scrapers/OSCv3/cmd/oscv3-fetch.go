@@ -2,16 +2,6 @@ package cmd
 
 import "fmt"
 
-// ApplicationID is the primary lookup key for Applications
-type ApplicationID string
-
-// ApplicationTracking is to keep a look up on which items to be checked for any refresher
-type ApplicationTracking struct {
-	// ID - Application ID; used to look up
-	// Form URLs --> any Borang related to this Appllication; zero or more ..
-	IDs []ApplicationID
-}
-
 // ApplicationDetails has in-depth details of the Application; more than summary ApplicationRecord
 type ApplicationDetails struct {
 	// ID - Application ID; used to look up
@@ -63,13 +53,6 @@ func FetchAll(authorityToScrape string, snapshotLabel string) {
 	// e.g. ./data/selangor-mbpj-1003/tracking.yaml; append only new unique items;
 	//	sorted by ApplicationID
 	// marked the successful / completed into archive? <-- Done in another step
-}
-
-func getLatestComparison(uniqueSearchID string) (absolutePathToComparison string) {
-
-	absolutePathToComparison = "./data/"
-
-	return absolutePathToComparison
 }
 
 // FetchNew will only Extract the New items per authority mapping
