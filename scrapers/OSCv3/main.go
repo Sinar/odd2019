@@ -30,6 +30,9 @@ func main() {
 		specificLabel := time.Now().Format("20060102") // "20190407"
 		cmd.FindAllApplications(*authorityPtr, forceRefresh, specificLabel)
 		return
+	} else if *actionPtr == "fetch" {
+		cmd.FetchNew(*authorityPtr)
+		return
 	}
 
 	fmt.Println("INVALID ACTION: ", *actionPtr)

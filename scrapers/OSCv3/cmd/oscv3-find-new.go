@@ -55,6 +55,12 @@ type ApplicationSnapshot struct {
 	appRecords    ApplicationRecords
 }
 
+// NewDiff strcuture defined ..
+type NewDiff struct {
+	Label string
+	AR    []ApplicationRecord `yaml:"new"`
+}
+
 // ApplicationID is the primary lookup key for Applications
 type ApplicationID string
 
@@ -356,11 +362,6 @@ func saveData(uniqueSearchID string, snapshotDiffLabels string, newAppRecords []
 	}
 
 	// Assume gets this far; just persist it!!
-	// NewDiff strcuture defined ..
-	type NewDiff struct {
-		Label string
-		AR    []ApplicationRecord `yaml:"new"`
-	}
 	// Get those bytes out
 	b, err := yaml.Marshal(NewDiff{
 		Label: uniqueSearchID,

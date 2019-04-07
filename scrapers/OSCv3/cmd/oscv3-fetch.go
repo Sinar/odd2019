@@ -1,6 +1,11 @@
 package cmd
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+
+	"gopkg.in/yaml.v2"
+)
 
 // ApplicationDetails has in-depth details of the Application; more than summary ApplicationRecord
 type ApplicationDetails struct {
@@ -48,8 +53,8 @@ func FetchAll(authorityToScrape string, snapshotLabel string) {
 	// var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
 	// var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
-	// Step #1: Extract into marshal structure
-	// Store into metadata structure like ./data/<uniqueSearchID>/
+	// Step #1: Open from metadata tracking.yml to determine the ApplicationID
+	// Open metadata structure like ./data/<uniqueSearchID>/
 	// e.g. ./data/selangor-mbpj-1003/tracking.yaml; append only new unique items;
 	//	sorted by ApplicationID
 	// marked the successful / completed into archive? <-- Done in another step
@@ -66,6 +71,27 @@ func FetchNew(authorityToScrape string) {
 	// var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
 	// var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
+	// Step #1: Open from metadata new.yml to determine the ApplicationID
+
+	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s", uniqueSearchID)
+	rawDataFolderSetup(absoluteNewDataPath)
+
+	newDiff := NewDiff{}
+	b, rerr := ioutil.ReadFile(fmt.Sprintf("%s/data/%s/new.yml", volumePrefix, uniqueSearchID))
+	if rerr != nil {
+		panic(rerr)
+	}
+	err := yaml.Unmarshal(b, &newDiff)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("LABEL: ", newDiff.Label)
+	for _, ar := range newDiff.AR {
+		fmt.Println("Fetch URL: ", ar.URL)
+	}
+
 }
 
 // ExtractAll parses the raw HTML collected under the snapshotLabel
@@ -81,6 +107,9 @@ func ExtractNew(authorityToScrape string) {
 	// e.g. ./data/selangor-mbpj-1003-20190330_20190317
 	fmt.Println("ACTION: ExtractNew")
 
+	// TODO: Load the tracking.yml
+
+	// TODO: Persist after appending the new items; of maybe just append direct
 }
 
 // extract out the fields related to Application; which is what?
