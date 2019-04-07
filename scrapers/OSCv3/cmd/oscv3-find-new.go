@@ -265,7 +265,7 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20190402"
+	var currentDateLabel = "20190407"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate
@@ -283,8 +283,13 @@ func FindNewRequests(authorityToScrape string) {
 		if foundOldID {
 			previousIDIndex++
 			if singleRecord.ID != previousSnapshot.appRecords[previousIDIndex].ID {
-				fmt.Println("ERR: ID: ", singleRecord.ID, " NOT matching ", previousSnapshot.appRecords[previousIDIndex].ID)
+				// If this part happens; means the data can be considered corrupted; and should be re-run again!!
+				fmt.Println("BIL:", singleRecord.bil, " ERR: ID: ", singleRecord.ID, " NOT matching ", previousSnapshot.appRecords[previousIDIndex].ID)
 			}
+			// DEBUG
+			// else {
+			// 	fmt.Println("BIL:", singleRecord.bil, " OK: ID: ", singleRecord.ID, " matches ", previousSnapshot.appRecords[previousIDIndex].ID)
+			// }
 		} else {
 			// Show visually which is it ..
 			fmt.Printf("%s,", singleRecord.ID)
