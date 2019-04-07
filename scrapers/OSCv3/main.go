@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"time"
 
 	"github.com/sinar/odd2019/scrapers/OSCv3/cmd"
 )
@@ -24,7 +25,9 @@ func main() {
 	} else if *actionPtr == "track" {
 		// use a specific option label like
 		forceRefresh := false
-		specificLabel := "20190317"
+		// specificLabel := "20190407"
+		// Set to current for now; state transition/history will be lost!
+		specificLabel := time.Now().Format("20060102") // "20190407"
 		cmd.FindAllApplications(*authorityPtr, forceRefresh, specificLabel)
 		return
 	}

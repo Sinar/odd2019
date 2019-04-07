@@ -60,9 +60,10 @@ type ApplicationID string
 
 // ApplicationTracking is to keep a look up on which items to be checked for any refresher
 type ApplicationTracking struct {
+	Label string
 	// ID - Application ID; used to look up
 	// Form URLs --> any Borang related to this Appllication; zero or more ..
-	IDs []ApplicationID
+	IDs []ApplicationID `yaml:"tracking"`
 }
 
 func extractAllApplicationData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
@@ -235,23 +236,59 @@ func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSe
 	return appSnapshot
 }
 
-// FindAllApplications will
+// FindAllApplications will setup the tracking file for this
 //	if overridden with options of specific label or just newest
 //	process accordingly ..
+//  Example: ./data/selangor-mbpj-1003/tracking.yml
 func FindAllApplications(authorityToScrape string, forceRefresh bool, specificLabel string) {
+	fmt.Println("ACTION: FindAllApplications")
 
 	// if forceRefresh; empty the list
 	// else read from the existing structure and append it?
 	// build up the list
 
+	// Open up the raw data specified by Label
+	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
+
+	// Get the snapshot from memory..
+	specifiedSnapshot := extractDataFromSnapshot(volumePrefix, specificLabel, uniqueSearchID)
+
+	aid := make([]ApplicationID, 0)
+	for _, singleRecord := range specifiedSnapshot.appRecords {
+		// DEBUG
+		// fmt.Println("Store ID: ", singleRecord.ID)
+		aid = append(aid, ApplicationID(singleRecord.ID))
+	}
+	// Nothing to be done
+	if len(aid) == 0 {
+		fmt.Println("Nothing to be done!")
+		return
+	}
+
+	b, err := yaml.Marshal(ApplicationTracking{
+		Label: uniqueSearchID,
+		IDs:   aid,
+	})
+	// Extract into struct --> ApplicationTracking
+
 	// persist the data into the data folder?
-}
+	if err != nil {
+		panic(err)
+	}
 
-func saveApplicationTrackingData() {
+	// DEBUG
+	// spew.Println(string(b))
 
-}
-
-func saveApplicationIDData() {
+	// Open file and persist it into the format
+	// Metadata structure like ./data/<uniqueSearchID>/tracking.yml
+	// e.g. ./data/selangor-mbpj-1003/tracking.yml
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s", uniqueSearchID)
+	rawDataFolderSetup(absoluteNewDataPath)
+	nerr := ioutil.WriteFile(fmt.Sprintf("%s/tracking.yml", absoluteNewDataPath), b, 0744)
+	if nerr != nil {
+		panic(nerr)
+	}
 
 }
 
