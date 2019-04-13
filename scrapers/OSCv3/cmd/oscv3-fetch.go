@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"regexp"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/gocolly/colly/queue"
 	"github.com/y0ssar1an/q"
@@ -283,6 +284,7 @@ func ExtractAll(authorityToScrape string) {
 		extractApplicationDetailsData(appDetails, pages)
 
 		// TODO: can perist data now ..
+		// saveDetailsData(uniqueSearchID, appDetails)
 	}
 
 }
@@ -308,11 +310,47 @@ func ExtractNew(authorityToScrape string) {
 		panic(err)
 	}
 	fmt.Println("LABEL: ", newDiff.Label)
+	for _, singleRecord := range newDiff.AR {
+		// Iterate through the raw data .. and append the name to the map
+		pages := []string{}
+		// This is the relative path to the ApplicationRecord directory
+		absoluteRawDataPath := fmt.Sprintf("%s/raw/%s/%s", volumePrefix, uniqueSearchID, fmt.Sprintf("AR_%s", singleRecord.ID))
+		// This get us the absolute unix path
+		dir, err := os.Getwd()
+		if err != nil {
+			panic(err)
+		}
+		// DEBUG
+		fmt.Println("PWD: ", dir, " DIR:", absoluteRawDataPath)
+		absoluteRawDataPath = fmt.Sprintf("%s/%s", dir, absoluteRawDataPath)
+		// Read all the raw HTML files in this directory
+		fi, rerr := ioutil.ReadDir(absoluteRawDataPath)
+		if rerr != nil {
+			panic(rerr)
+		}
+		for _, f := range fi {
+			if !f.IsDir() {
+				// We only want non-directory files ..
+				path := filepath.Join(absoluteRawDataPath, "/", f.Name())
+				// DEBUG
+				// fmt.Println("FILE: ", path)
+				pages = append(pages, path)
+			}
+		}
+		// Extract the Snapshot data from newest pages
+		appDetails := &ApplicationDetails{
+			ID: ApplicationID(singleRecord.ID),
+		}
+		extractApplicationDetailsData(appDetails, pages)
 
-	// TODO: Persist after appending the new items; of maybe just append direct
+		// TODO: can perist data now ..
+		// TODO: Persist after appending the new items; of maybe just append direct
+		// saveDetailsData(uniqueSearchID, appDetails)
+	}
+
 }
 
-// extract out the fields related to Application; which is what?
-func extractAllApplicationDetails() {
-
+func saveDetailsData(uniqueSearchID string, newAppDetails *ApplicationDetails) {
+	// ./data/<uniqueSearchID>/AR_<AppID>/details.yml
+	spew.Dump(newAppDetails)
 }
