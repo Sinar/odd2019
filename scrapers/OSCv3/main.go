@@ -49,12 +49,7 @@ func main() {
 		return
 	} else if *actionPtr == "extractall" {
 
-		// use a specific option label like
-		forceRefresh := false
-		// specificLabel := "20190407"
-		// Set to current for now; state transition/history will be lost!
-		specificLabel := time.Now().Format("20060102") // "20190407"
-		cmd.ExtractAll(*authorityPtr, forceRefresh, specificLabel)
+		cmd.ExtractAll(*authorityPtr)
 		return
 	}
 	fmt.Println("INVALID ACTION: ", *actionPtr)

@@ -3,6 +3,9 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
+	"net/http"
+	"os"
+	"path/filepath"
 	"regexp"
 
 	"github.com/gocolly/colly"
@@ -42,7 +45,51 @@ type FormRecord struct {
 // NOTE: All raw data here will be stored under the following pattern
 // ./raw/<uniqueSearchID>/<ApplicationID>/
 
-func extractApplicationDetailsData(appSnapshot *ApplicationSnapshot, pagesToExtract []string) {
+func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtract []string) {
+	// Loop in the whole identified folder ..
+	// and run extractDataFromPage
+	c := colly.NewCollector(
+		colly.UserAgent("Sinar Project :P"),
+		colly.Async(true),
+	)
+	// As per in: https://github.com/gocolly/colly/issues/260
+	// can register local file: transport with the absolute path?
+	t := &http.Transport{}
+	t.RegisterProtocol("file", http.NewFileTransport(http.Dir("/")))
+	c.WithTransport(t)
+
+	// TODO: What is the pattern for borang??
+	c.OnHTML("html body table tbody tr td table tbody tr td table tbody tr td table tbody tr", func(e *colly.HTMLElement) {
+	})
+
+	c.OnScraped(func(r *colly.Response) {
+		// Next time; queue the further extraction of item?
+		// spew.Println(r.StatusCode)
+		// DEBUG
+		// fmt.Println("DONE!  CODE:", r.StatusCode)
+	})
+
+	// Example finalURL will be like below:
+	// finalURL := "file:///Users/leow/GOMOD/odd2019/scrapers/OSCv3/raw/selangor-mbpj-1003/AR_770177/_osc_Proj1_Info.cfm_Name_770177_S_S.html"
+	for _, URL := range pagesToExtract {
+		finalURL := fmt.Sprintf("file://%s", URL)
+		// DEBUG
+		// fmt.Println("FILE: ", finalURL)
+		verr := c.Visit(finalURL)
+		if verr != nil {
+			// panic(verr)
+			fmt.Println("ERR:", verr.Error())
+		}
+		// DEBUG
+		// break
+	}
+
+	c.Wait() // Barrier for aync; so we can go as fast as opossible ..
+	// Sort the final based on the bil as Int
+	// Then iterate until the last observed item is matched!
+	// Whats doe sit look like?
+	// DEBUG
+	// fmt.Println(strings.TrimSpace(strings.Join(idOrder, ",")))
 
 }
 
@@ -183,7 +230,7 @@ func FetchNew(authorityToScrape string) {
 
 // ExtractAll parses the raw HTML collected under the snapshotLabel
 // 	mostly is run once at the  start to kick off the process? Unless overridden
-func ExtractAll(authorityToScrape string, forceRefresh bool, specificLabel string) {
+func ExtractAll(authorityToScrape string) {
 	fmt.Println("ACTION: ExtractAll")
 
 	// Save into the tracking metadata portion of it ..
@@ -191,21 +238,51 @@ func ExtractAll(authorityToScrape string, forceRefresh bool, specificLabel strin
 	// Step #1: Open from metadata tracking.yml to determine the ApplicationID
 	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
-	var absoluteNewDataPath = fmt.Sprintf("./data/%s", uniqueSearchID)
-	rawDataFolderSetup(absoluteNewDataPath)
 
-	newDiff := NewDiff{}
+	appTracking := ApplicationTracking{}
 	b, rerr := ioutil.ReadFile(fmt.Sprintf("%s/data/%s/tracking.yml", volumePrefix, uniqueSearchID))
 	if rerr != nil {
 		panic(rerr)
 	}
-	err := yaml.Unmarshal(b, &newDiff)
+	err := yaml.Unmarshal(b, &appTracking)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("LABEL: ", newDiff.Label)
-	for _, ar := range newDiff.AR {
-		fmt.Println("Fetch URL: ", ar.URL)
+	fmt.Println("LABEL: ", appTracking.Label)
+	for _, arID := range appTracking.IDs {
+		// Iterate through the raw data .. and append the name to the map
+		pages := []string{}
+		// This is the relative path to the ApplicationRecord directory
+		absoluteRawDataPath := fmt.Sprintf("%s/raw/%s/%s", volumePrefix, uniqueSearchID, fmt.Sprintf("AR_%s", arID))
+		// This get us the absolute unix path
+		dir, err := os.Getwd()
+		if err != nil {
+			panic(err)
+		}
+		// DEBUG
+		fmt.Println("PWD: ", dir, " DIR:", absoluteRawDataPath)
+		absoluteRawDataPath = fmt.Sprintf("%s/%s", dir, absoluteRawDataPath)
+		// Read all the raw HTML files in this directory
+		fi, rerr := ioutil.ReadDir(absoluteRawDataPath)
+		if rerr != nil {
+			panic(rerr)
+		}
+		for _, f := range fi {
+			if !f.IsDir() {
+				// We only want non-directory files ..
+				path := filepath.Join(absoluteRawDataPath, "/", f.Name())
+				// DEBUG
+				// fmt.Println("FILE: ", path)
+				pages = append(pages, path)
+			}
+		}
+		// Extract the Snapshot data from newest pages
+		appDetails := &ApplicationDetails{
+			ID: arID,
+		}
+		extractApplicationDetailsData(appDetails, pages)
+
+		// TODO: can perist data now ..
 	}
 
 }
@@ -216,7 +293,21 @@ func ExtractNew(authorityToScrape string) {
 	// e.g. ./data/selangor-mbpj-1003-20190330_20190317
 	fmt.Println("ACTION: ExtractNew")
 
-	// TODO: Load the tracking.yml
+	// Step #1: Open from metadata new.yml to determine the ApplicationID
+	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
+
+	// TODO: Load the new.yml
+	newDiff := NewDiff{}
+	b, rerr := ioutil.ReadFile(fmt.Sprintf("%s/data/%s/new.yml", volumePrefix, uniqueSearchID))
+	if rerr != nil {
+		panic(rerr)
+	}
+	err := yaml.Unmarshal(b, &newDiff)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("LABEL: ", newDiff.Label)
 
 	// TODO: Persist after appending the new items; of maybe just append direct
 }
