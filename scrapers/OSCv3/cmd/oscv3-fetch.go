@@ -19,7 +19,7 @@ import (
 type ApplicationDetails struct {
 	// ID - Application ID; used to look up
 	// Form URLs --> any Borang related to this Appllication; zero or more ..
-	ID          ApplicationID
+	AR          ApplicationRecord
 	Agensi      string
 	Rujukan     string
 	Tetuan      string
@@ -148,16 +148,6 @@ func fetchApplicationPage(absoluteRawDataPath string, pageURL string) {
 
 }
 
-func saveApplicationDetails(ad *ApplicationDetails) {
-	// In ./data/<uniqueSearchID>/<applicationID>/details.yml
-
-}
-
-func saveApplicationRecordSummary(ar *ApplicationRecord) {
-	// In ./data/<uniqueSearchID>/<applicationID>/summary.yml
-
-}
-
 // FetchAll will Extract from authority + label; all 15 pages of the information
 func FetchAll(authorityToScrape string, forceRefresh bool, specificLabel string) {
 	// Raw structure like .. ./raw/<snapshotLabel>/<uniqueSearchID>
@@ -278,9 +268,7 @@ func ExtractAll(authorityToScrape string) {
 			}
 		}
 		// Extract the Snapshot data from newest pages
-		appDetails := &ApplicationDetails{
-			ID: arID,
-		}
+		appDetails := &ApplicationDetails{}
 		extractApplicationDetailsData(appDetails, pages)
 
 		// TODO: can perist data now ..
@@ -339,7 +327,7 @@ func ExtractNew(authorityToScrape string) {
 		}
 		// Extract the Snapshot data from newest pages
 		appDetails := &ApplicationDetails{
-			ID: ApplicationID(singleRecord.ID),
+			AR: singleRecord,
 		}
 		extractApplicationDetailsData(appDetails, pages)
 
@@ -350,7 +338,43 @@ func ExtractNew(authorityToScrape string) {
 
 }
 
-func saveDetailsData(uniqueSearchID string, newAppDetails *ApplicationDetails) {
-	// ./data/<uniqueSearchID>/AR_<AppID>/details.yml
-	spew.Dump(newAppDetails)
+func saveApplicationDetails(uniqueSearchID string, ad *ApplicationDetails) {
+	// In ./data/<uniqueSearchID>/AR_<applicationID>/details.yml
+	spew.Dump(ad)
+
+}
+
+func saveApplicationRecordSummary(uniqueSearchID string, ar *ApplicationRecord) {
+	// In ./data/<uniqueSearchID>/<applicationID>/summary.yml
+	appRecords := []ApplicationRecord{*ar}
+	//IN yaml format
+	if len(appRecords) == 0 {
+		// Nothing to be done ..
+		fmt.Println("NOTHING to DO .. skipping!!")
+		return
+	}
+
+	// Assume gets this far; just persist it!!
+	// Get those bytes out
+	b, err := yaml.Marshal(appRecords)
+	if err != nil {
+		panic(err)
+	}
+
+	// If detect env CF_REPO_NAME; we are in Codefresh and data is meant to be stored there?
+	// If in debugging mode; save in $TMPDIR?
+	// else use the data folder? or should it be raw?
+	// data/<uniqueSearchID>/new.yml <-- new data; including the details
+
+	// DEBUG
+	// spew.Println(string(b))
+
+	// Open file and persist it into the format
+	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/summary.yml
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s", uniqueSearchID, ar.ID)
+	rawDataFolderSetup(absoluteNewDataPath)
+	nerr := ioutil.WriteFile(fmt.Sprintf("%s/summary.yml", absoluteNewDataPath), b, 0744)
+	if nerr != nil {
+		panic(nerr)
+	}
 }

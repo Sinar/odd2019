@@ -265,6 +265,8 @@ func FindAllApplications(authorityToScrape string, forceRefresh bool, specificLa
 		// DEBUG
 		// fmt.Println("Store ID: ", singleRecord.ID)
 		aid = append(aid, ApplicationID(singleRecord.ID))
+		// Persist the data being tracked so we can grab them later ..
+		saveApplicationRecordSummary(uniqueSearchID, &singleRecord)
 	}
 	// Nothing to be done
 	if len(aid) == 0 {
@@ -343,6 +345,8 @@ func FindNewRequests(authorityToScrape string) {
 				// What to do with the new entries?? save it for further use later ..
 				// spew.Dump(singleRecord)
 				newAppRecords = append(newAppRecords, singleRecord)
+				// Also save a copy for summary in later use
+				saveApplicationRecordSummary(uniqueSearchID, &singleRecord)
 			}
 		}
 	}
