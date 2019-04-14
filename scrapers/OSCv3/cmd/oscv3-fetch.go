@@ -7,8 +7,9 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 
-	"github.com/davecgh/go-spew/spew"
+	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
 	"github.com/gocolly/colly/queue"
 	"github.com/y0ssar1an/q"
@@ -47,6 +48,7 @@ type FormRecord struct {
 // ./raw/<uniqueSearchID>/<ApplicationID>/
 
 func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtract []string) {
+	fmt.Println("START ==> extractApplicationDetailsData =================")
 	// Loop in the whole identified folder ..
 	// and run extractDataFromPage
 	c := colly.NewCollector(
@@ -59,8 +61,55 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 	t.RegisterProtocol("file", http.NewFileTransport(http.Dir("/")))
 	c.WithTransport(t)
 
-	// TODO: What is the pattern for borang??
-	c.OnHTML("html body table tbody tr td table tbody tr td table tbody tr td table tbody tr", func(e *colly.HTMLElement) {
+	// Pattern for Application Details
+	c.OnHTML("body > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td > table > tbody", func(e *colly.HTMLElement) {
+
+		// DEBUG
+		// q.Q("-- START DETAILS MATCH ---")
+		// q.Q(e.Text)
+		// q.Q("== END MATCH ====")
+
+		// Every row of data ..
+		e.DOM.Children().Each(func(i int, s *goquery.Selection) {
+
+			// Pattern is key : Value
+			// Each column
+			s.Children().Each(func(j int, c *goquery.Selection) {
+				if j == 0 {
+					q.Q("KEY:", strings.TrimSpace(c.Text()))
+				} else if j == 1 {
+					// Col separator .. skip ..
+				} else if j == 2 {
+					q.Q("VALUE:", strings.TrimSpace(c.Text()))
+				} else {
+					q.Q("UNKNOWN COL:", j, " VAL: ", strings.TrimSpace(c.Text()))
+				}
+			})
+		})
+	})
+
+	// Pattern for Form Summary
+	c.OnHTML("body > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(3) > td > table > tbody", func(e *colly.HTMLElement) {
+
+		// DEBUG
+		// q.Q("-- START FORM MATCH ---")
+		// q.Q(e.Text)
+		// q.Q("== END MATCH ====")
+
+		// Every row of data ..
+		e.DOM.Children().Each(func(i int, s *goquery.Selection) {
+
+			// Pattern is key : Value
+			// Each column
+			s.Children().Each(func(j int, c *goquery.Selection) {
+				q.Q("-- Start FORM Child -- ", j)
+				q.Q(c.Html())
+				// q.Q(strings.TrimSpace(c.Text()))
+				q.Q("== END FORM Child =====")
+
+			})
+		})
+
 	})
 
 	c.OnScraped(func(r *colly.Response) {
@@ -272,7 +321,10 @@ func ExtractAll(authorityToScrape string) {
 		extractApplicationDetailsData(appDetails, pages)
 
 		// TODO: can perist data now ..
-		// saveDetailsData(uniqueSearchID, appDetails)
+		// saveApplicationDetails(uniqueSearchID, appDetails)
+
+		// TODO: Remove later after tested
+		break
 	}
 
 }
@@ -321,7 +373,7 @@ func ExtractNew(authorityToScrape string) {
 				// We only want non-directory files ..
 				path := filepath.Join(absoluteRawDataPath, "/", f.Name())
 				// DEBUG
-				// fmt.Println("FILE: ", path)
+				fmt.Println("FILE: ", path)
 				pages = append(pages, path)
 			}
 		}
@@ -331,16 +383,41 @@ func ExtractNew(authorityToScrape string) {
 		}
 		extractApplicationDetailsData(appDetails, pages)
 
-		// TODO: can perist data now ..
-		// TODO: Persist after appending the new items; of maybe just append direct
-		// saveDetailsData(uniqueSearchID, appDetails)
+		// saveApplicationDetails(uniqueSearchID, appDetails)
+
+		// TODO: Remove later after tested
+		break
 	}
 
 }
 
 func saveApplicationDetails(uniqueSearchID string, ad *ApplicationDetails) {
 	// In ./data/<uniqueSearchID>/AR_<applicationID>/details.yml
-	spew.Dump(ad)
+	// DEBUG
+	// spew.Dump(ad)
+	appDetails := []ApplicationDetails{*ad}
+	if len(appDetails) == 0 {
+		fmt.Println("NOTHING to DO .. skipping!!")
+		return
+	}
+	// Assume gets this far; just persist it!!
+	// Get those bytes out
+	b, err := yaml.Marshal(appDetails)
+	if err != nil {
+		panic(err)
+	}
+
+	// DEBUG
+	// spew.Println(string(b))
+
+	// Open file and persist it into the format
+	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/summary.yml
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s", uniqueSearchID, ad.AR.ID)
+	rawDataFolderSetup(absoluteNewDataPath)
+	nerr := ioutil.WriteFile(fmt.Sprintf("%s/details.yml", absoluteNewDataPath), b, 0744)
+	if nerr != nil {
+		panic(nerr)
+	}
 
 }
 
@@ -360,11 +437,6 @@ func saveApplicationRecordSummary(uniqueSearchID string, ar *ApplicationRecord) 
 	if err != nil {
 		panic(err)
 	}
-
-	// If detect env CF_REPO_NAME; we are in Codefresh and data is meant to be stored there?
-	// If in debugging mode; save in $TMPDIR?
-	// else use the data folder? or should it be raw?
-	// data/<uniqueSearchID>/new.yml <-- new data; including the details
 
 	// DEBUG
 	// spew.Println(string(b))
