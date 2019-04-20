@@ -310,7 +310,7 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20190413"
+	var currentDateLabel = "20190420"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate
