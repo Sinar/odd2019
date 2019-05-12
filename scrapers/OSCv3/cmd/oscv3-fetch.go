@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -38,6 +40,7 @@ type FormRecord struct {
 	// Tkh Lulus Jabatan Teknikal PBT
 	// Status / Tkh Lulus / Tempoh
 	bil              int
+	URL              string
 	TarikhPermohonan string
 	JenisPemohonan   string
 	TarikhLulus      string
@@ -153,21 +156,68 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 		// q.Q("-- START FORM MATCH ---")
 		// q.Q(e.Text)
 		// q.Q("== END MATCH ====")
+		formRecords := make([]FormRecord, 0)
 
 		// Every row of data ..
 		e.DOM.Children().Each(func(i int, s *goquery.Selection) {
-
+			// Initialize for this row iteration ..
+			formRecord := FormRecord{}
+			formBil := 0
 			// Pattern is key : Value
-			// Each column
-			s.Children().Each(func(j int, c *goquery.Selection) {
-				q.Q("-- Start FORM Child -- ", j)
-				q.Q(c.Html())
-				// q.Q(strings.TrimSpace(c.Text()))
-				q.Q("== END FORM Child =====")
-
+			// Each Form Column
+			s.Children().Each(func(j int, fc *goquery.Selection) {
+				// DEBUG
+				// q.Q("-- Start FORM Child -- ", j)
+				// q.Q(fc.Html())
+				// q.Q(strings.TrimSpace(fc.Text()))
+				// q.Q("== END FORM Child =====")
+				if j == 0 {
+					// TODO: Better check??
+					// q.Q("BIL: ", fc.Text())
+					formRecord.bil, _ = strconv.Atoi(strings.Trim(fc.Text(), "."))
+					// TODO: Try to extract out the URL matching the pattern "Borang_info.cfm"
+					fc.Find("a").Map(func(_ int, m *goquery.Selection) string {
+						href, _ := m.Attr("href")
+						idURL, err := url.Parse(href)
+						if err != nil {
+							panic(err)
+						}
+						formRecord.URL = href
+						//DEBUG
+						// q.Q("URL :>>> ", formRecord.URL)
+						// fmt.Println(appRecord.URL)
+						return idURL.Query().Get("ID")
+					})
+				} else if j == 1 {
+					// Application date
+					formRecord.TarikhPermohonan = strings.Trim(fc.Text(), "\n\t ")
+				} else if j == 2 {
+					// Application Type; including SLA?
+					formRecord.JenisPemohonan = strings.Trim(fc.Text(), "\n\t ")
+				} else if j == 3 {
+					// Approval date; this will be dynamic; start out as empty?
+				} else if j == 4 {
+					// Status
+					formRecord.Status = strings.Trim(fc.Text(), "\n\t ")
+				} else {
+					// Something is wrong!
+					panic(fmt.Errorf("Too many columns?? Col: %d", j))
+				}
 			})
+			// Got out; append the data; if it is not header
+			// Don;t append if it is a weird structure instead??
+			// Or if bil is not positive int??
+			q.Q(formRecord)
+			// TODO: Remove this stupid hack  ..
+			if formRecord.TarikhPermohonan != "Tarikh Permohonan" {
+				// formRecord.bil = 1
+				formRecords = append(formRecords, formRecord)
+			}
+			formBil++
 		})
 
+		// Attach all found records ..
+		appDetails.FormRecords = formRecords
 	})
 
 	c.OnScraped(func(r *colly.Response) {
@@ -442,11 +492,10 @@ func ExtractNew(authorityToScrape string) {
 		}
 		extractApplicationDetailsData(appDetails, pages)
 
-		// TODO: Turn back on after we get all the needed fields from extractApplicationDetailsData
-		// saveApplicationDetails(uniqueSearchID, appDetails)
+		saveApplicationDetails(uniqueSearchID, appDetails)
 
-		// TODO: Remove later after tested
-		break
+		// DEBUG for single dataset ..
+		// break
 	}
 
 }

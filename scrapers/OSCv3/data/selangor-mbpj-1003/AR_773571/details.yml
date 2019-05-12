@@ -7,10 +7,16 @@
     lot: NO.7, JALAN JASA 17A
     mukim: DAERAH PETALING
     url: Proj1_Info.cfm?Name=773571&S=S
-  agensi: ""
-  rujukan: ""
-  tetuan: ""
-  kategori: ""
-  jenispemaju: ""
-  rt: ""
-  formrecords: []
+  rujukan: MBPJ/OSC/PPK05/B2/240/2019/PKB
+  tetuan: YIN MOON WENG & YIN CHOOI LING
+  kategori: A - Projek Biasa
+  jenispemaju: A - Perumahan
+  rt: Dikemukakan RT (Rancangan Tempatan)
+  formrecords:
+  - url: Borang_info.cfm?ID=526930&NoForm=Form4
+    tarikhpermohonan: 10-May-2019
+    jenispemohonan: "B2 \n          (Permit Pembinaan Kecil) \n  \n     : 69 hari"
+    tarikhlulus: ""
+    status: "Proses\n\t\t\n\t\t\n            \n              \n                \n
+      \               \n            \n\t\t\n            \n\t\t\t\n\t\t\t\n\t\t\t               (3
+      hari)"
