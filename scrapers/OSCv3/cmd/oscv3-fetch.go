@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/gocolly/colly/queue"
 	"github.com/y0ssar1an/q"
@@ -383,7 +384,7 @@ func ExtractNew(authorityToScrape string) {
 		}
 		extractApplicationDetailsData(appDetails, pages)
 
-		// saveApplicationDetails(uniqueSearchID, appDetails)
+		saveApplicationDetails(uniqueSearchID, appDetails)
 
 		// TODO: Remove later after tested
 		break
@@ -392,6 +393,7 @@ func ExtractNew(authorityToScrape string) {
 }
 
 func saveApplicationDetails(uniqueSearchID string, ad *ApplicationDetails) {
+	fmt.Println("oscv3-fetch: saveApplicationDetails")
 	// In ./data/<uniqueSearchID>/AR_<applicationID>/details.yml
 	// DEBUG
 	// spew.Dump(ad)
@@ -408,7 +410,7 @@ func saveApplicationDetails(uniqueSearchID string, ad *ApplicationDetails) {
 	}
 
 	// DEBUG
-	// spew.Println(string(b))
+	spew.Println(string(b))
 
 	// Open file and persist it into the format
 	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/summary.yml
