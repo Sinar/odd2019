@@ -10,7 +10,6 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/gocolly/colly"
 	"github.com/gocolly/colly/queue"
 	"github.com/y0ssar1an/q"
@@ -21,8 +20,8 @@ import (
 type ApplicationDetails struct {
 	// ID - Application ID; used to look up
 	// Form URLs --> any Borang related to this Appllication; zero or more ..
-	AR          ApplicationRecord
-	Agensi      string
+	AR ApplicationRecord
+	// Agensi      string
 	Rujukan     string
 	Tetuan      string
 	Kategori    string
@@ -72,16 +71,74 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 
 		// Every row of data ..
 		e.DOM.Children().Each(func(i int, s *goquery.Selection) {
+			// Reset items per row; like key back to empty
+			colKey := ""
 
 			// Pattern is key : Value
 			// Each column
 			s.Children().Each(func(j int, c *goquery.Selection) {
+				// Reset columnVal
+				colValue := ""
 				if j == 0 {
-					q.Q("KEY:", strings.TrimSpace(c.Text()))
+					colKey = strings.TrimSpace(c.Text())
+					// DEBUG
+					// q.Q("KEY:", colKey)
 				} else if j == 1 {
 					// Col separator .. skip ..
 				} else if j == 2 {
-					q.Q("VALUE:", strings.TrimSpace(c.Text()))
+					colValue = strings.TrimSpace(c.Text())
+					// DEBUG
+					// q.Q("VALUE:", colValue)
+					// based on columnKey
+					switch colKey {
+					case "Agensi":
+						// Do nothing
+						// appDetails.Agensi = colValue
+						// Reset colKey for next round
+						colKey = ""
+
+					case "No. Rujukan Projek":
+						appDetails.Rujukan = colValue
+						// Reset colKey for next round
+						colKey = ""
+
+					case "Nama Projek":
+						// Do nothing
+						// Reset colKey for next round
+						colKey = ""
+					case "Untuk Tetuan":
+						appDetails.Tetuan = colValue
+						// Reset colKey for next round
+						colKey = ""
+
+					case "Kategori Projek":
+						appDetails.Kategori = colValue
+						// Reset colKey for next round
+						colKey = ""
+
+					case "Jenis Pemajuan":
+						appDetails.JenisPemaju = colValue
+						// Reset colKey for next round
+						colKey = ""
+
+					case "Rancangan Tempatan (RT)":
+						appDetails.RT = colValue
+						// Reset colKey for next round
+						colKey = ""
+
+					case "No. Lot":
+						// Do nothing
+						// Reset colKey for next round
+						colKey = ""
+					case "Mukim":
+						// Do nothing
+						// Reset colKey for next round
+						colKey = ""
+					default:
+						// Do nothing
+						// Reset colKey for next round
+						colKey = ""
+					}
 				} else {
 					q.Q("UNKNOWN COL:", j, " VAL: ", strings.TrimSpace(c.Text()))
 				}
@@ -118,6 +175,7 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 		// spew.Println(r.StatusCode)
 		// DEBUG
 		// fmt.Println("DONE!  CODE:", r.StatusCode)
+		q.Q(appDetails)
 	})
 
 	// Example finalURL will be like below:
@@ -384,7 +442,8 @@ func ExtractNew(authorityToScrape string) {
 		}
 		extractApplicationDetailsData(appDetails, pages)
 
-		saveApplicationDetails(uniqueSearchID, appDetails)
+		// TODO: Turn back on after we get all the needed fields from extractApplicationDetailsData
+		// saveApplicationDetails(uniqueSearchID, appDetails)
 
 		// TODO: Remove later after tested
 		break
@@ -410,7 +469,7 @@ func saveApplicationDetails(uniqueSearchID string, ad *ApplicationDetails) {
 	}
 
 	// DEBUG
-	spew.Println(string(b))
+	// spew.Println(string(b))
 
 	// Open file and persist it into the format
 	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/summary.yml
