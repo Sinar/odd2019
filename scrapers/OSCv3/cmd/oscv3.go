@@ -45,8 +45,11 @@ func mapAuthorityToDirectory(authorityID string) string {
 	case "0212":
 		fmt.Println("KULIM!!")
 		directoryName = fmt.Sprintf("penang-kulim-%s", authorityID)
+	case "9999":
+		fmt.Println("DBKL!!")
+		directoryName = fmt.Sprintf("kl-dbkl-%s", authorityID)
 	default:
-		fmt.Println("INVALID AUTHORITY: ", authorityID, " Maybe 1003 for MBPJ??")
+		fmt.Println("INVALID AUTHORITY: ", authorityID, " Maybe 1003 for MBPJ?? Or 9999 for DBKL? Or 0212 for Kulim?")
 		panic("BAD AUTHORITY!!!")
 	}
 
