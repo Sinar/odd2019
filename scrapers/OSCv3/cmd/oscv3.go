@@ -42,6 +42,9 @@ func mapAuthorityToDirectory(authorityID string) string {
 	case "1003":
 		fmt.Println("MBPJ!!")
 		directoryName = fmt.Sprintf("selangor-mbpj-%s", authorityID)
+	case "1007":
+		fmt.Println("MPSJ!!")
+		directoryName = fmt.Sprintf("selangor-mpsj-%s", authorityID)
 	case "0212":
 		fmt.Println("KULIM!!")
 		directoryName = fmt.Sprintf("penang-kulim-%s", authorityID)
@@ -86,6 +89,21 @@ func BasicCollyFromRaw(authorityToScrape string) {
 		c := colly.NewCollector(
 			colly.UserAgent("Sinar Project :P"),
 		)
+		// Make it wait longer .. crazy 300 secs! This is needed for MPSJ; DBKL cannot totally!
+		//c.SetRequestTimeout(300 * time.Second)
+		//c.WithTransport(&http.Transport{
+		//	Proxy: http.ProxyFromEnvironment,
+		//	DialContext: (&net.Dialer{
+		//		Timeout:   300 * time.Second,
+		//		KeepAlive: 30 * time.Second,
+		//		DualStack: true,
+		//	}).DialContext,
+		//	MaxIdleConns:          100,
+		//	IdleConnTimeout:       90 * time.Second,
+		//	TLSHandshakeTimeout:   10 * time.Second,
+		//	ExpectContinueTimeout: 1 * time.Second,
+		//	ResponseHeaderTimeout: 300 * time.Second,
+		//})
 
 		// On every a element which has href attribute print full link
 		c.OnHTML("a[href]", func(e *colly.HTMLElement) {
