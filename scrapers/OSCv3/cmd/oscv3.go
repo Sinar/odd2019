@@ -108,7 +108,7 @@ func BasicCollyFromRaw(authorityToScrape string) {
 		// On every a element which has href attribute print full link
 		c.OnHTML("a[href]", func(e *colly.HTMLElement) {
 			link := e.Attr("href")
-			rePattern := regexp.MustCompile("http://www\\.epbt\\.gov\\.my/osc/Carian_Proj3.+$")
+			rePattern := regexp.MustCompile(`http://www.epbt.gov.my/osc/Carian_Proj3.+$`)
 			// Only those with result page we grab
 			if rePattern.Match([]byte(e.Request.AbsoluteURL(link))) {
 				queue.AddURL(e.Request.AbsoluteURL(link))

@@ -162,7 +162,7 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 		e.DOM.Children().Each(func(i int, s *goquery.Selection) {
 			// Initialize for this row iteration ..
 			formRecord := FormRecord{}
-			formBil := 0
+			//formBil := 0
 			// Pattern is key : Value
 			// Each Form Column
 			s.Children().Each(func(j int, fc *goquery.Selection) {
@@ -213,7 +213,7 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 				// formRecord.bil = 1
 				formRecords = append(formRecords, formRecord)
 			}
-			formBil++
+			//formBil++
 		})
 
 		// Attach all found records ..
@@ -271,7 +271,7 @@ func fetchApplicationPage(absoluteRawDataPath string, pageURL string) {
 	// On every a element which has href attribute print full link
 	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
 		link := e.Attr("href")
-		rePattern := regexp.MustCompile("http://www\\.epbt\\.gov\\.my/osc/Borang_info.+$")
+		rePattern := regexp.MustCompile(`http://www.epbt.gov.my/osc/Borang_info.+$`)
 		// // Only those with result page we grab
 		if rePattern.Match([]byte(e.Request.AbsoluteURL(link))) {
 			queue.AddURL(e.Request.AbsoluteURL(link))
@@ -433,7 +433,7 @@ func ExtractAll(authorityToScrape string) {
 		// saveApplicationDetails(uniqueSearchID, appDetails)
 
 		// TODO: Remove later after tested
-		break
+		//break
 	}
 
 }

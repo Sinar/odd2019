@@ -126,13 +126,10 @@ func fetchFormPage(fd *FormDetails, pageURL string) error {
 
 //  Pull the data from details ..
 // Assumes  syncTracking ran previously; so only have the new ones? combined?
-func loadApplicationApprovalForms(uniqueSearchID string) []FormDetails {
+func loadApplicationApprovalForms(uniqueSearchID string, ad ApplicationDetails) []FormDetails {
 	fmt.Println("ACTION: BORANG - FETCH + EXTRACT")
 	var borangs []FormDetails
 
-	// Load Application Details from file; scenario sinlge form
-	// Test cse below for no date
-	ad := ApplicationDetails{FormRecords: []FormRecord{{URL: "Borang_info.cfm?ID=260530&NoForm=Form3"}}}
 	// Below id the complete one ..
 	//ad := ApplicationDetails{FormRecords: []FormRecord{{URL: "Borang_info.cfm?ID=377290&NoForm=Form2"}}}
 	// TOOD: Scenario for multiple forms ..
@@ -162,20 +159,17 @@ func loadApplicationApprovalForms(uniqueSearchID string) []FormDetails {
 }
 
 // loadApplicationDetailsFromFile will load Active Application Details per authority mapping
-func loadApplicationDetailsFromFile(authorityToScrape string) {
+// TODO: Maybe return just ID, form +err?
+func loadApplicationDetailsFromFile(uniqueSearchID string) []ApplicationDetails {
 	// Metadata structure like ./data/<uniqueSearchID>-<snapshotDiffLabels>
 	// e.g. ./data/selangor-mbpj-1003-20190330_20190317
 	fmt.Println("ACTION: loadApplicationDetailsFromFile")
-	// Figure out when was the last successful run and if not exist; create it!
-	// Also will reset if passed a flag of some sort?
-	// var currentDateLabel = time.Now().Format("20060102") // "20190316"
-	// var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
-	// var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
-	// Step #1: Open from metadata new.yml to determine the ApplicationID
+	trackedApplicationDetails := []ApplicationDetails{}
+
+	// Step #1: Open from metadata tracking.yml to determine the TrackedApplicationDetails
 
 	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
-	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	appTracking := ApplicationTracking{}
 	b, rerr := ioutil.ReadFile(fmt.Sprintf("%s/data/%s/tracking.yml", volumePrefix, uniqueSearchID))
@@ -188,25 +182,36 @@ func loadApplicationDetailsFromFile(authorityToScrape string) {
 	}
 	fmt.Println("LABEL: ", appTracking.Label)
 	for _, id := range appTracking.IDs {
+		var applicationDetails ApplicationDetails
+
 		absoluteRawDataPath := fmt.Sprintf("%s/raw/%s/AR_%s", volumePrefix, uniqueSearchID, id)
 		rawDataFolderSetup(absoluteRawDataPath)
 		//fetchApplicationPage(absoluteRawDataPath, ar.URL)
-		// ftech and see if got new approval date
-		// Those ith approvsl date can be ignored and marked for removal
-		// Those still there waiting; put back in the list ..
-		// ALTERNATIVELY: We can assume  it is ok; the state-sync in another function
+
+		// Read and unmarshal out the data and extract out the FormRecord
+		b, rerr := ioutil.ReadFile(absoluteRawDataPath + "/details.yaml")
+		if rerr != nil {
+			panic(rerr)
+		}
+
+		umerr := yaml.Unmarshal(b, applicationDetails)
+		if umerr != nil {
+			panic(umerr)
+		}
+		// Append it out to eb used later
+		trackedApplicationDetails = append(trackedApplicationDetails, applicationDetails)
 	}
 
 	// Once loaded; can update tracking file about the newest state ..
-
+	return trackedApplicationDetails
 }
 
-func saveFormDetails(uniqueSearchID string, fd *FormDetails) {
+func saveFormDetails(uniqueSearchID string, arID ApplicationID, fd FormDetails) {
 	fmt.Println("oscv3-fetch: saveApplicationDetails")
 	// In ./data/<uniqueSearchID>/AR_<applicationID>/details.yml
 	// DEBUG
 	// spew.Dump(ad)
-	formDetails := []FormDetails{*fd}
+	formDetails := []FormDetails{fd}
 	if len(formDetails) == 0 {
 		fmt.Println("NOTHING to DO .. skipping!!")
 		return
@@ -223,7 +228,7 @@ func saveFormDetails(uniqueSearchID string, fd *FormDetails) {
 
 	// Open file and persist it into the format
 	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/FR_<formID>_<formNUm>/details.yml
-	var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s", uniqueSearchID, fd.ID)
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s", uniqueSearchID, arID, fd.ID, fd.FormNum)
 	rawDataFolderSetup(absoluteNewDataPath)
 	nerr := ioutil.WriteFile(fmt.Sprintf("%s/details.yml", absoluteNewDataPath), b, 0744)
 	if nerr != nil {
@@ -240,8 +245,29 @@ func syncTracking(authorityToScrape string) {
 	// Can refactor previous function ..
 }
 
+func extractNewFormsDetails(authorityToScrape string) {
+	fmt.Println("Inside extractNewFormsDetails ..")
+	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
+
+	// Load Application Details from file; scenario sinlge form
+	// Test cse below for no date
+	//ad := ApplicationDetails{FormRecords: []FormRecord{{URL: "Borang_info.cfm?ID=260530&NoForm=Form3"}}}
+
+	trackedApplicationDetails := loadApplicationDetailsFromFile(uniqueSearchID)
+
+	for _, ad := range trackedApplicationDetails {
+		formDetails := loadApplicationApprovalForms(uniqueSearchID, ad)
+		for _, fd := range formDetails {
+			// DEBUG
+			fmt.Println("SAVE ARID: ", ad.AR.ID, " with FORM: ", fd.ID, " TYPE: ", fd.FormNum)
+			//saveFormDetails(uniqueSearchID, ApplicationID(ad.AR.ID), fd)
+		}
+	}
+
+}
+
 // ExtractFormNew (fetches if needed); and parses the raw HTML files for Form Details Info
 func ExtractFormNew(authorityToScrape string) {
 	// Try it out first cut!
-	loadApplicationApprovalForms(authorityToScrape)
+	extractNewFormsDetails(authorityToScrape)
 }
