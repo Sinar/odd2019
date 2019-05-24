@@ -13,7 +13,7 @@ func main() {
 	// TODO: Use github.com/mitchellh/cli for cli
 	// For now just use the simple flag package?
 	actionPtr := flag.String("action", "update", "What action to run: default is update, you can call: diff")
-	authorityPtr := flag.String("authority", "1007", "Which Local Authority to scrape? MBPJ - 1003, Kulim - 0212, DBKL - 9999")
+	authorityPtr := flag.String("authority", "1003", "Which Local Authority to scrape? MBPJ - 1003, Kulim - 0212, DBKL - 9999")
 	flag.Parse()
 
 	if *actionPtr == "update" {
