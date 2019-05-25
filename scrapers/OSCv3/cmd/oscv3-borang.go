@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/url"
+	"os"
 	"strings"
 
 	"github.com/gocolly/colly"
@@ -34,10 +35,10 @@ type FormDetails struct {
 // Have a command to sweep and  update from data fields all "new" and ALL data? concurrent ..
 // This will update the trackoing field to be  consistent?
 
-func extractFormDetailsData(formDetails *FormDetails, pagesToExtract []string) {
-	fmt.Println("START ==> extractFormDetailsData =================")
-
-}
+//func extractFormDetailsData(formDetails *FormDetails, pagesToExtract []string) {
+//	fmt.Println("START ==> extractFormDetailsData =================")
+//
+//}
 
 // Default use the  tracking to pull in the new items ..
 
@@ -134,7 +135,6 @@ func loadApplicationApprovalForms(uniqueSearchID string, ad ApplicationDetails) 
 	//ad := ApplicationDetails{FormRecords: []FormRecord{{URL: "Borang_info.cfm?ID=377290&NoForm=Form2"}}}
 	// TOOD: Scenario for multiple forms ..
 	for _, form := range ad.FormRecords {
-		fmt.Println("Fetch:", form.URL)
 		// Split up the ID and FormNum
 		idURL, err := url.Parse(form.URL)
 		if err != nil {
@@ -145,6 +145,20 @@ func loadApplicationApprovalForms(uniqueSearchID string, ad ApplicationDetails) 
 			ID:      idURL.Query().Get("ID"),
 			FormNum: idURL.Query().Get("NoForm"),
 		}
+
+		// Guard rail; can skip if the data file already exists?
+		// But we want to check the newest so maybe not ...
+		//  For now; skip if it exists already ..
+		// Pattern is:
+		// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/FR_<formID>_<formNUm>/details.yml
+		//var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s", uniqueSearchID, arID, fd.ID, fd.FormNum)
+		formDetailsPath := fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s", uniqueSearchID, ad.AR.ID, formDetail.ID, formDetail.FormNum)
+		if fileExists(formDetailsPath + "/details.yml") {
+			fmt.Println("Data already exist in ", formDetailsPath, " skipping for now ...")
+			continue
+		}
+
+		fmt.Println("Fetch:", form.URL)
 		// ferch and fill in structure; what if got error?
 		ffperr := fetchFormPage(&formDetail, form.URL)
 		if ffperr != nil {
@@ -154,8 +168,18 @@ func loadApplicationApprovalForms(uniqueSearchID string, ad ApplicationDetails) 
 		borangs = append(borangs, formDetail)
 	}
 	// DEBUG:
-	q.Q(borangs)
+	//q.Q(borangs)
 	return borangs
+}
+
+// fileExists checks if a file exists and is not a directory before we
+// try using it to prevent further errors.
+func fileExists(filename string) bool {
+	info, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
 }
 
 // loadApplicationDetailsFromFile will load Active Application Details per authority mapping
@@ -168,7 +192,6 @@ func loadApplicationDetailsFromFile(uniqueSearchID string) []ApplicationDetails 
 	trackedApplicationDetails := []ApplicationDetails{}
 
 	// Step #1: Open from metadata tracking.yml to determine the TrackedApplicationDetails
-
 	var volumePrefix = "." // When in CodeFresh, it will be relative .. so that we can have the persistence
 
 	appTracking := ApplicationTracking{}
@@ -182,67 +205,34 @@ func loadApplicationDetailsFromFile(uniqueSearchID string) []ApplicationDetails 
 	}
 	fmt.Println("LABEL: ", appTracking.Label)
 	for _, id := range appTracking.IDs {
-		var applicationDetails ApplicationDetails
+		var applicationDetails []ApplicationDetails
+		//applicationDetails := []ApplicationDetails{}
 
-		absoluteRawDataPath := fmt.Sprintf("%s/raw/%s/AR_%s", volumePrefix, uniqueSearchID, id)
+		absoluteRawDataPath := fmt.Sprintf("%s/data/%s/AR_%s", volumePrefix, uniqueSearchID, id)
 		rawDataFolderSetup(absoluteRawDataPath)
-		//fetchApplicationPage(absoluteRawDataPath, ar.URL)
+		appDetailsDataPath := absoluteRawDataPath + "/details.yml"
+		if !fileExists(appDetailsDataPath) {
+			// Guard rail against missing data
+			fmt.Println("Missing file: ", appDetailsDataPath, " ; skipping ...")
+			continue
+		}
 
 		// Read and unmarshal out the data and extract out the FormRecord
-		b, rerr := ioutil.ReadFile(absoluteRawDataPath + "/details.yaml")
+		b, rerr := ioutil.ReadFile(appDetailsDataPath)
 		if rerr != nil {
 			panic(rerr)
 		}
 
-		umerr := yaml.Unmarshal(b, applicationDetails)
+		umerr := yaml.Unmarshal(b, &applicationDetails)
 		if umerr != nil {
 			panic(umerr)
 		}
 		// Append it out to eb used later
-		trackedApplicationDetails = append(trackedApplicationDetails, applicationDetails)
+		trackedApplicationDetails = append(trackedApplicationDetails, applicationDetails[0])
 	}
 
 	// Once loaded; can update tracking file about the newest state ..
 	return trackedApplicationDetails
-}
-
-func saveFormDetails(uniqueSearchID string, arID ApplicationID, fd FormDetails) {
-	fmt.Println("oscv3-fetch: saveApplicationDetails")
-	// In ./data/<uniqueSearchID>/AR_<applicationID>/details.yml
-	// DEBUG
-	// spew.Dump(ad)
-	formDetails := []FormDetails{fd}
-	if len(formDetails) == 0 {
-		fmt.Println("NOTHING to DO .. skipping!!")
-		return
-	}
-	// Assume gets this far; just persist it!!
-	// Get those bytes out
-	b, err := yaml.Marshal(formDetails)
-	if err != nil {
-		panic(err)
-	}
-
-	// DEBUG
-	// spew.Println(string(b))
-
-	// Open file and persist it into the format
-	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/FR_<formID>_<formNUm>/details.yml
-	var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s", uniqueSearchID, arID, fd.ID, fd.FormNum)
-	rawDataFolderSetup(absoluteNewDataPath)
-	nerr := ioutil.WriteFile(fmt.Sprintf("%s/details.yml", absoluteNewDataPath), b, 0744)
-	if nerr != nil {
-		panic(nerr)
-	}
-
-}
-
-// syncTracking will pull latest raw data and  check their Application date/status?
-// Try to use existing data to use a simple  regexp instead? possible?
-func syncTracking(authorityToScrape string) {
-	// Load up ApplicationTracking metedata tate for use in checking ..
-	// Assumes the URL is S=S; until we can prove otherwise ..
-	// Can refactor previous function ..
 }
 
 func extractNewFormsDetails(authorityToScrape string) {
@@ -257,11 +247,49 @@ func extractNewFormsDetails(authorityToScrape string) {
 
 	for _, ad := range trackedApplicationDetails {
 		formDetails := loadApplicationApprovalForms(uniqueSearchID, ad)
+		if len(formDetails) == 0 {
+			fmt.Println("*** NOTE: *** NO FORMS!! Check  it out?")
+		}
+		// TODO: What to do when no forms; is it unusual? I don;t think so ..
 		for _, fd := range formDetails {
 			// DEBUG
-			fmt.Println("SAVE ARID: ", ad.AR.ID, " with FORM: ", fd.ID, " TYPE: ", fd.FormNum)
-			//saveFormDetails(uniqueSearchID, ApplicationID(ad.AR.ID), fd)
+			//fmt.Println("SAVE ARID: ", ad.AR.ID, " with FORM: ", fd.ID, " TYPE: ", fd.FormNum)
+			saveFormDetails(uniqueSearchID, ApplicationID(ad.AR.ID), fd)
 		}
+		// TODO: Remove after Testing purpose; run one round!
+		//break
+	}
+
+}
+
+func saveFormDetails(uniqueSearchID string, arID ApplicationID, formDetails FormDetails) {
+	fmt.Println("oscv3-borang: saveFormDetails")
+	// In ./data/<uniqueSearchID>/AR_<applicationID>/details.yml
+	// DEBUG
+	// spew.Dump(ad)
+	//formDetails := []FormDetails{fd}
+	//if len(formDetails) == 0 {
+	//	fmt.Println("NOTHING to DO .. skipping!!")
+	//	return
+	//}
+	// Assume gets this far; just persist it!!
+	// Get those bytes out
+	b, err := yaml.Marshal(formDetails)
+	if err != nil {
+		panic(err)
+	}
+
+	// DEBUG
+	// spew.Println(string(b))
+
+	// Open file and persist it into the format
+	// Metadata structure like ./data/<uniqueSearchID>/AR_<appID>/FR_<formID>_<formNUm>/details.yml
+	var absoluteNewDataPath = fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s", uniqueSearchID, arID, formDetails.ID, formDetails.FormNum)
+	rawDataFolderSetup(absoluteNewDataPath)
+	q.Q("Persisting to ", absoluteNewDataPath, "/details.yml")
+	nerr := ioutil.WriteFile(fmt.Sprintf("%s/details.yml", absoluteNewDataPath), b, 0744)
+	if nerr != nil {
+		panic(nerr)
 	}
 
 }
@@ -271,3 +299,11 @@ func ExtractFormNew(authorityToScrape string) {
 	// Try it out first cut!
 	extractNewFormsDetails(authorityToScrape)
 }
+
+// syncTracking will pull latest raw data and  check their Application date/status?
+// Try to use existing data to use a simple  regexp instead? possible?
+//func syncTracking(authorityToScrape string) {
+//	// Load up ApplicationTracking metedata tate for use in checking ..
+//	// Assumes the URL is S=S; until we can prove otherwise ..
+//	// Can refactor previous function ..
+//}

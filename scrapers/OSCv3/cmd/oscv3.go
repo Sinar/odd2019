@@ -111,7 +111,10 @@ func BasicCollyFromRaw(authorityToScrape string) {
 			rePattern := regexp.MustCompile(`http://www.epbt.gov.my/osc/Carian_Proj3.+$`)
 			// Only those with result page we grab
 			if rePattern.Match([]byte(e.Request.AbsoluteURL(link))) {
-				queue.AddURL(e.Request.AbsoluteURL(link))
+				err := queue.AddURL(e.Request.AbsoluteURL(link))
+				if err != nil {
+					panic(err)
+				}
 			}
 		})
 
@@ -126,13 +129,21 @@ func BasicCollyFromRaw(authorityToScrape string) {
 			d := colly.NewCollector()
 			d.OnScraped(func(r *colly.Response) {
 				fmt.Println("FINISH: ", r.Request.URL, "<================")
-				r.Save(fmt.Sprintf("%s/%s.html", absoluteRawDataPath, r.FileName()))
+				err := r.Save(fmt.Sprintf("%s/%s.html", absoluteRawDataPath, r.FileName()))
+				if err != nil {
+					panic(err)
+				}
+
 				q.Q("FILE: ", r.FileName())
 				q.Q("SAVED ==================>")
 				//fmt.Println(r.Headers)
 			})
 			// Kick off the queue once all the pages are collected already ..
-			queue.Run(d)
+			qerr := queue.Run(d)
+			if qerr != nil {
+				panic(qerr)
+			}
+
 		})
 
 		verr := c.Visit(seedURL)
