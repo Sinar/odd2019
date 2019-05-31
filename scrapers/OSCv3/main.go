@@ -56,6 +56,10 @@ func main() {
 		//  See the status?
 		cmd.ExtractFormNew(*authorityPtr)
 		return
+	} else if *actionPtr == "bstatus" {
+		// This is to show the Form Status of the IAT Approval as it progresses
+		cmd.DisplayFormDetails(*authorityPtr)
+		return
 	}
 
 	fmt.Println("INVALID ACTION: ", *actionPtr)

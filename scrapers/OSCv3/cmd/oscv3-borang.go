@@ -11,6 +11,8 @@ import (
 	"github.com/y0ssar1an/q"
 
 	"gopkg.in/yaml.v2"
+
+	h2t "github.com/jaytaylor/html2text"
 )
 
 // FormNum ==> Different Type of Forms; same across Local Authorities?
@@ -300,12 +302,50 @@ func ExtractFormNew(authorityToScrape string) {
 	extractNewFormsDetails(authorityToScrape)
 }
 
+func convertFormHistoryHTML(formHistoryHTML string) {
+	fmt.Println("Inside convertFormHistoryHTML ..")
+	//  use https://github.com/jaytaylor/html2text ...
+	prettyTable, cerr := h2t.FromString(formHistoryHTML, h2t.Options{PrettyTables: true})
+	if cerr != nil {
+		panic(cerr)
+	}
+	fmt.Println("======== IAT Approval Status ===========")
+	fmt.Println(prettyTable)
+}
+
 // DisplayFormDetails will render out the Form life history
 // 	use a few HTML to text libraries ..
-func DisplayFormDetails(pathofFormDetails string) {
+func DisplayFormDetails(authorityToScrape string) {
 	// Barrier check ; data file MUST exists!
 	// then you can unmarshal it; no problem ..
+	fmt.Println("Inside DisplayFormDetails ..")
+	uniqueSearchID := mapAuthorityToDirectory(authorityToScrape)
+	// Test case: scrapers/OSCv3/data/selangor-mbpj-1003/AR_776053/FR_528126_Form4/details.yml
+	// Case #1
+	//arID := "776053"
+	//formID := "528126"
+	//formNum := "Form4"
+	// Case #2 - scrapers/OSCv3/data/selangor-mbpj-1003/AR_776183/FR_528195_Form4/details.yml
+	//arID := "776183"
+	//formID := "528195"
+	//formNum := "Form4"
+	// Case #3 - scrapers/OSCv3/data/selangor-mbpj-1003/AR_776177/FR_528192_Form4/details.yml
+	arID := "776177"
+	formID := "528192"
+	formNum := "Form4"
 
+	pathOfFormDetails := fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s/details.yml", uniqueSearchID, arID, formID, formNum)
+	b, rerr := ioutil.ReadFile(pathOfFormDetails)
+	if rerr != nil {
+		panic(rerr)
+	}
+	formDetails := FormDetails{}
+	umerr := yaml.Unmarshal(b, &formDetails)
+	if umerr != nil {
+		panic(umerr)
+	}
+	// Display in a nice looking text way ..
+	convertFormHistoryHTML(formDetails.StatusTerkiniAT)
 }
 
 // syncTracking will pull latest raw data and  check their Application date/status?
