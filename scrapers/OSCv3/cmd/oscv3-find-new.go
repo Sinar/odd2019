@@ -310,11 +310,11 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20190524"
+	var currentDateLabel = "20190531"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate
-	var previousDateLabel = "20190518"
+	var previousDateLabel = "20190524"
 	fmt.Println("Now compare against the previous: ", previousDateLabel)
 	previousSnapshot := extractDataFromSnapshot(volumePrefix, previousDateLabel, uniqueSearchID)
 

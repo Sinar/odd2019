@@ -300,6 +300,14 @@ func ExtractFormNew(authorityToScrape string) {
 	extractNewFormsDetails(authorityToScrape)
 }
 
+// DisplayFormDetails will render out the Form life history
+// 	use a few HTML to text libraries ..
+func DisplayFormDetails(pathofFormDetails string) {
+	// Barrier check ; data file MUST exists!
+	// then you can unmarshal it; no problem ..
+
+}
+
 // syncTracking will pull latest raw data and  check their Application date/status?
 // Try to use existing data to use a simple  regexp instead? possible?
 //func syncTracking(authorityToScrape string) {
