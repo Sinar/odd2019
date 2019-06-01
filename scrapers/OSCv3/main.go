@@ -60,6 +60,9 @@ func main() {
 		// This is to show the Form Status of the IAT Approval as it progresses
 		cmd.DisplayFormDetails(*authorityPtr)
 		return
+	} else if *actionPtr == "fetchmissing" {
+		cmd.FetchMissing()
+		return
 	}
 
 	fmt.Println("INVALID ACTION: ", *actionPtr)

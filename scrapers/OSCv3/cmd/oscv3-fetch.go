@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/davecgh/go-spew/spew"
+
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
 	"github.com/gocolly/colly/queue"
@@ -379,6 +381,129 @@ func FetchNew(authorityToScrape string) {
 		absoluteRawDataPath := fmt.Sprintf("%s/raw/%s/AR_%s", volumePrefix, uniqueSearchID, ar.ID)
 		rawDataFolderSetup(absoluteRawDataPath)
 		fetchApplicationPage(absoluteRawDataPath, ar.URL)
+	}
+
+}
+
+func isApplicationPageActive(pageURL string) bool {
+	c := colly.NewCollector(
+		colly.UserAgent("Sinar Project :P"),
+		colly.Async(true),
+	)
+
+	c.OnResponse(func(r *colly.Response) {
+		fmt.Println("Visited", r.Request.URL)
+		fmt.Println(r.StatusCode)
+		spew.Dump(r.Body)
+	})
+	// If regexp "Majlis Bandaraya Petaling Jaya"; stop!!!
+
+	verr := c.Visit(fmt.Sprintf("http://www.epbt.gov.my/osc/%s", pageURL))
+	if verr != nil {
+		panic(verr)
+	}
+
+	c.Wait()
+	// Default is NOT active and it will stop!!
+	return false
+}
+
+func returnOldestMBPJTracked() (int, int) {
+	var startingID, endingID int
+
+	return 955555, 555557
+	return startingID, endingID
+}
+
+// FetchMissing will use the minimum tracking number in authorityToScrape and run till no more valid Application Page is
+// found and extracted out
+func FetchMissing() {
+	fmt.Println("ACTION: FetchMissing")
+
+	volumePrefix := "." // When in CodeFresh, it will be relative .. so that we can have the persistence
+
+	// Take the earliest in the set
+	// ignore the ones in authorityToScrape tracking and fetch for the rest; put it in missing category?
+
+	// Store raw here below: <== NO need as we skip and get to the ApplicationRecords directly!
+	// 	./raw/<currentdatelabel>/malaysia-missing-0000/
+
+	// Store tracking here below: <== maybe .. maybe NOT
+	// ./data/malaysia-missing-0000-<currentdatelabel>/new.yml
+	//currentDateLabel := time.Now().Format("20060102") // "20190316"
+	//saveData("malaysia-missing-0000", currentDateLabel, nil)
+
+	// Part one, take the authorityToScrape's tracking and find the smallest ID there ..
+	applicationIDs := []ApplicationID{}
+	// We take the oldest and iterarte from there; until we have a bunmch of applicationIDs
+	startingID, endingID := returnOldestMBPJTracked()
+	if startingID == 0 || endingID == 0 {
+		panic(fmt.Sprintf("INVALID STATE!! ABORTING!!!"))
+	}
+
+	//for i := startingID; i <= endingID; i++ {
+	// DEBUG
+	for i := startingID; i <= startingID+10; i++ {
+		var currentAppID, pageURL string
+		// Left pad fill to 6 digits to form pageURL?
+		currentAppID = fmt.Sprintf("%6d", i)
+		// pageURL is relative; to osc; http://www.epbt.gov.my/osc/Proj1_Info.cfm?Name=773399&S=S
+		pageURL = fmt.Sprintf("Proj1_Info.cfm?Name=%s&S=S", currentAppID)
+		if !isApplicationPageActive(pageURL) {
+			// Hit missing page; bail out NOW!!!
+			break
+		}
+		panic("DEBUG!!!")
+		// Now fetch the page!
+		fetchApplicationPage(fmt.Sprintf("%s/raw/malaysia-notmbpj-0000/AR_%", volumePrefix, currentAppID), pageURL)
+		// If evrything is OK, append the page
+		applicationIDs = append(applicationIDs, ApplicationID(currentAppID))
+	}
+
+	// DEBUG!
+	return
+
+	// Next part; we go through the raw files; from our special catchall MALAYSIA!!
+	uniqueSearchID := mapAuthorityToDirectory("0000")
+	absoluteNewDataPath := fmt.Sprintf("%s/data/%s", volumePrefix, uniqueSearchID)
+	rawDataFolderSetup(absoluteNewDataPath)
+
+	// Below is built as we iterate
+	for _, appID := range applicationIDs {
+		// Look into the folder which we will construct based on the appID
+		pages := []string{}
+		// This is the relative path to the ApplicationRecord directory
+		absoluteRawDataPath := fmt.Sprintf("%s/raw/%s/AR_%s", volumePrefix, uniqueSearchID, appID)
+		// This get us the absolute unix path
+		dir, err := os.Getwd()
+		if err != nil {
+			panic(err)
+		}
+		// DEBUG
+		//fmt.Println("PWD: ", dir, " DIR:", absoluteRawDataPath)
+		absoluteRawDataPath = fmt.Sprintf("%s/%s", dir, absoluteRawDataPath)
+		// Read all the raw HTML files in this directory
+		fi, rerr := ioutil.ReadDir(absoluteRawDataPath)
+		if rerr != nil {
+			panic(rerr)
+		}
+		for _, f := range fi {
+			if !f.IsDir() {
+				// We only want non-directory files ..
+				path := filepath.Join(absoluteRawDataPath, "/", f.Name())
+				// DEBUG
+				//fmt.Println("FILE: ", path)
+				pages = append(pages, path)
+			}
+		}
+
+		// Extract the Snapshot data from newest pages
+		appDetails := &ApplicationDetails{
+			//AR: singleRecord, // No record exist; maybe to extract fully from details itself; good enough?
+		}
+		extractApplicationDetailsData(appDetails, pages)
+
+		saveApplicationDetails(uniqueSearchID, appDetails)
 	}
 
 }

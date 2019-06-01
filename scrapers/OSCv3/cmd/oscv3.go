@@ -39,6 +39,9 @@ func rawDataFolderSetup(absoluteRawDataPath string) (proceedScraping bool) {
 func mapAuthorityToDirectory(authorityID string) string {
 	var directoryName string
 	switch authorityID {
+	case "0000":
+		fmt.Println("Malaysia!!!")
+		directoryName = fmt.Sprintf("malaysia-notmbpj-%s", authorityID)
 	case "1003":
 		fmt.Println("MBPJ!!")
 		directoryName = fmt.Sprintf("selangor-mbpj-%s", authorityID)
