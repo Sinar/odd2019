@@ -11,8 +11,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/davecgh/go-spew/spew"
-
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
 	"github.com/gocolly/colly/queue"
@@ -108,7 +106,10 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 						colKey = ""
 
 					case "Nama Projek":
-						// Do nothing
+						// Do nothing if exist
+						if appDetails.AR.Projek == "" {
+							appDetails.AR.Projek = colValue
+						}
 						// Reset colKey for next round
 						colKey = ""
 					case "Untuk Tetuan":
@@ -132,11 +133,17 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 						colKey = ""
 
 					case "No. Lot":
-						// Do nothing
+						// Do nothing if exist
+						if appDetails.AR.Lot == "" {
+							appDetails.AR.Lot = colValue
+						}
 						// Reset colKey for next round
 						colKey = ""
 					case "Mukim":
-						// Do nothing
+						// Do nothing if exist
+						if appDetails.AR.Mukim == "" {
+							appDetails.AR.Mukim = colValue
+						}
 						// Reset colKey for next round
 						colKey = ""
 					default:
@@ -386,15 +393,38 @@ func FetchNew(authorityToScrape string) {
 }
 
 func isApplicationPageActive(pageURL string) bool {
+	//fmt.Println("pageURL: ", pageURL)
+	fmt.Println("Inside isApplicationPageActive ...")
+	var foundAgensi string
 	c := colly.NewCollector(
 		colly.UserAgent("Sinar Project :P"),
 		colly.Async(true),
 	)
 
+	c.OnError(func(r *colly.Response, e error) {
+		fmt.Println("DIE!!!")
+		q.Q(r.Request.URL, r.StatusCode)
+		panic(e)
+	})
+
+	c.OnHTML("body > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(1)", func(e *colly.HTMLElement) {
+
+		rawRow := strings.Split(e.Text, ":")
+		if len(rawRow) > 0 {
+			foundAgensi = strings.TrimSpace(rawRow[1])
+			//q.Q(foundAgensi)
+		}
+
+	})
+	// Look for Agensi; missing consider it NOT PageActive
+
+	// If has Agensi; but is the special MBPJ; ignore it! NOT PageActive
+
 	c.OnResponse(func(r *colly.Response) {
-		fmt.Println("Visited", r.Request.URL)
-		fmt.Println(r.StatusCode)
-		spew.Dump(r.Body)
+		q.Q("Visited", r.Request.URL)
+		// DEBUG
+		//fmt.Println(r.StatusCode)
+		//spew.Dump(r.Body)
 	})
 	// If regexp "Majlis Bandaraya Petaling Jaya"; stop!!!
 
@@ -405,13 +435,27 @@ func isApplicationPageActive(pageURL string) bool {
 
 	c.Wait()
 	// Default is NOT active and it will stop!!
+
+	matched, rerr := regexp.MatchString("^Majlis Bandaraya Petaling Jaya.*$", foundAgensi)
+	if rerr != nil {
+		panic(rerr)
+	}
+	if matched {
+		q.Q("Skipping as ", foundAgensi, " contains MBPJ!")
+	} else {
+		// Anything else  is OK!!
+		q.Q("Agensi is OK: ", foundAgensi)
+		return true
+	}
+	// Got here; so failed!
+	q.Q("is NOT ACTIVE!!!", pageURL)
 	return false
 }
 
 func returnOldestMBPJTracked() (int, int) {
 	var startingID, endingID int
 
-	return 955555, 555557
+	return 555555, 555560
 	return startingID, endingID
 }
 
@@ -435,33 +479,38 @@ func FetchMissing() {
 
 	// Part one, take the authorityToScrape's tracking and find the smallest ID there ..
 	applicationIDs := []ApplicationID{}
+	// TODO: Above  maybe do as array of APplicationDetails instead; then have nicer reuse; also have the URL ..
 	// We take the oldest and iterarte from there; until we have a bunmch of applicationIDs
 	startingID, endingID := returnOldestMBPJTracked()
 	if startingID == 0 || endingID == 0 {
 		panic(fmt.Sprintf("INVALID STATE!! ABORTING!!!"))
 	}
 
-	//for i := startingID; i <= endingID; i++ {
-	// DEBUG
-	for i := startingID; i <= startingID+10; i++ {
+	for i := startingID; i <= endingID; i++ {
+		// DEBUG
+		//for i := startingID; i <= startingID+10; i++ {
 		var currentAppID, pageURL string
 		// Left pad fill to 6 digits to form pageURL?
-		currentAppID = fmt.Sprintf("%6d", i)
+		currentAppID = fmt.Sprintf("%06d", i)
 		// pageURL is relative; to osc; http://www.epbt.gov.my/osc/Proj1_Info.cfm?Name=773399&S=S
 		pageURL = fmt.Sprintf("Proj1_Info.cfm?Name=%s&S=S", currentAppID)
 		if !isApplicationPageActive(pageURL) {
 			// Hit missing page; bail out NOW!!!
 			break
 		}
-		panic("DEBUG!!!")
+		//panic("DEBUG!!!")
+		rawApplicationDetailsPath := fmt.Sprintf("%s/raw/malaysia-notmbpj-0000/AR_%s", volumePrefix, currentAppID)
+		rawDataFolderSetup(rawApplicationDetailsPath)
+
 		// Now fetch the page!
-		fetchApplicationPage(fmt.Sprintf("%s/raw/malaysia-notmbpj-0000/AR_%", volumePrefix, currentAppID), pageURL)
+		fetchApplicationPage(rawApplicationDetailsPath, pageURL)
 		// If evrything is OK, append the page
 		applicationIDs = append(applicationIDs, ApplicationID(currentAppID))
 	}
 
 	// DEBUG!
-	return
+	//spew.Dump(applicationIDs)
+	//return
 
 	// Next part; we go through the raw files; from our special catchall MALAYSIA!!
 	uniqueSearchID := mapAuthorityToDirectory("0000")
@@ -500,7 +549,11 @@ func FetchMissing() {
 		// Extract the Snapshot data from newest pages
 		appDetails := &ApplicationDetails{
 			//AR: singleRecord, // No record exist; maybe to extract fully from details itself; good enough?
+			AR: ApplicationRecord{
+				ID: string(appID),
+			},
 		}
+
 		extractApplicationDetailsData(appDetails, pages)
 
 		saveApplicationDetails(uniqueSearchID, appDetails)
