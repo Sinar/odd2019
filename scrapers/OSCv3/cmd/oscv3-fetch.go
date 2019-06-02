@@ -262,6 +262,8 @@ func extractApplicationDetailsData(appDetails *ApplicationDetails, pagesToExtrac
 }
 
 func fetchApplicationPage(absoluteRawDataPath string, pageURL string) {
+	// DEBUG
+	//fmt.Println("Inside fetchApplicationPage ..")
 	// URL is partial; add on the needed full hostname?
 	pageURL = fmt.Sprintf("http://www.epbt.gov.my/osc/%s", pageURL)
 	// Extra checks will make sur egot not http/https??
@@ -393,7 +395,7 @@ func FetchNew(authorityToScrape string) {
 }
 
 func isApplicationPageActive(pageURL string) bool {
-	//fmt.Println("pageURL: ", pageURL)
+	fmt.Println("pageURL: ", pageURL)
 	fmt.Println("Inside isApplicationPageActive ...")
 	var foundAgensi string
 	c := colly.NewCollector(
@@ -455,7 +457,50 @@ func isApplicationPageActive(pageURL string) bool {
 func returnOldestMBPJTracked() (int, int) {
 	var startingID, endingID int
 
-	return 555555, 555560
+	// Load MBPJ's tracking
+	// First one will be the end; last one to be the start
+	b, rerr := ioutil.ReadFile("./data/selangor-mbpj-1003/tracking.yml")
+	if rerr != nil {
+		panic(rerr)
+	}
+
+	var appTracking ApplicationTracking
+	umerr := yaml.Unmarshal(b, &appTracking)
+	if umerr != nil {
+		panic(umerr)
+	}
+
+	var appID ApplicationID
+	var cerr error
+	for _, appID = range appTracking.IDs {
+		if endingID == 0 {
+			endingID, cerr = strconv.Atoi(string(appID))
+			if cerr != nil {
+				panic(cerr)
+			}
+			if endingID == 0 {
+				panic(fmt.Errorf("FAILED conversion!! ORIG: %s", appID))
+			}
+			// DEBUG
+			//fmt.Println("Ending ID: ", endingID)
+		}
+	}
+	// Leftover at the bottom is the startingID as the list is actually reverse sorted!
+	//fmt.Println("LEFTOVER: APPID: ", appID)
+	startingID, cerr = strconv.Atoi(string(appID))
+	if cerr != nil {
+		panic(cerr)
+	}
+	if startingID == 0 {
+		panic(fmt.Errorf("FAILED conversion!! ORIG: %s", appID))
+	}
+	// DEBUG
+	//fmt.Println("Starting ID: ", startingID)
+	// For now; we only collect last 100; for testing; otherwise it is pretty long ..
+	// Trackibgn is reverse sorted; so; starting is ending - 100!!
+	startingID = endingID - 100
+	// maybe don;t even  need to convert! int needed for the freeform exploration; lesve it there for now ..
+	//return 555555, 555560
 	return startingID, endingID
 }
 
@@ -486,7 +531,9 @@ func FetchMissing() {
 		panic(fmt.Sprintf("INVALID STATE!! ABORTING!!!"))
 	}
 
+	fmt.Println("ANALYZE FROM ", startingID, " TO ", endingID)
 	for i := startingID; i <= endingID; i++ {
+		//fmt.Println("ID: ", i)
 		// DEBUG
 		//for i := startingID; i <= startingID+10; i++ {
 		var currentAppID, pageURL string
@@ -500,12 +547,17 @@ func FetchMissing() {
 		}
 		//panic("DEBUG!!!")
 		rawApplicationDetailsPath := fmt.Sprintf("%s/raw/malaysia-notmbpj-0000/AR_%s", volumePrefix, currentAppID)
-		rawDataFolderSetup(rawApplicationDetailsPath)
+		proceedScraping := rawDataFolderSetup(rawApplicationDetailsPath)
 
-		// Now fetch the page!
-		fetchApplicationPage(rawApplicationDetailsPath, pageURL)
-		// If evrything is OK, append the page
-		applicationIDs = append(applicationIDs, ApplicationID(currentAppID))
+		// DEBUG; for testing can just go ahead ..
+		//proceedScraping = true
+		// If the data already exist; you can skip it; actually! This will prevent getting new items; possibly put in another function?
+		if proceedScraping {
+			// Now fetch the page!
+			fetchApplicationPage(rawApplicationDetailsPath, pageURL)
+			// If evrything is OK, append the page
+			applicationIDs = append(applicationIDs, ApplicationID(currentAppID))
+		}
 	}
 
 	// DEBUG!
