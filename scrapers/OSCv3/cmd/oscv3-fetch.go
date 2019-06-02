@@ -444,6 +444,8 @@ func isApplicationPageActive(pageURL string) bool {
 	}
 	if matched {
 		q.Q("Skipping as ", foundAgensi, " contains MBPJ!")
+	} else if foundAgensi == "" {
+		q.Q("Skipping as NO Agensi Found!")
 	} else {
 		// Anything else  is OK!!
 		q.Q("Agensi is OK: ", foundAgensi)
