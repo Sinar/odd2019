@@ -16,3 +16,7 @@
 
 # Ignore direnv files
 .envrc*
+
+# Ignore VSCode files
+.vscode
+

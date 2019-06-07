@@ -544,8 +544,8 @@ func FetchMissing() {
 		// pageURL is relative; to osc; http://www.epbt.gov.my/osc/Proj1_Info.cfm?Name=773399&S=S
 		pageURL = fmt.Sprintf("Proj1_Info.cfm?Name=%s&S=S", currentAppID)
 		if !isApplicationPageActive(pageURL) {
-			// Hit missing page; bail out NOW!!!
-			break
+			// Hit missing page; continue  onwards to the next one; no need to proceed for currentAppID!
+			continue
 		}
 		//panic("DEBUG!!!")
 		rawApplicationDetailsPath := fmt.Sprintf("%s/raw/malaysia-notmbpj-0000/AR_%s", volumePrefix, currentAppID)
