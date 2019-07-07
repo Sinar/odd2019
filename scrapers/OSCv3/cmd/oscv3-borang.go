@@ -330,9 +330,9 @@ func DisplayFormDetails(authorityToScrape string) {
 	//formID := "528195"
 	//formNum := "Form4"
 	// Case #3 - scrapers/OSCv3/data/selangor-mbpj-1003/AR_776177/FR_528192_Form4/details.yml
-	arID := "776177"
-	formID := "528192"
-	formNum := "Form4"
+	arID := "778616"
+	formID := "422667"
+	formNum := "Form2"
 
 	pathOfFormDetails := fmt.Sprintf("./data/%s/AR_%s/FR_%s_%s/details.yml", uniqueSearchID, arID, formID, formNum)
 	b, rerr := ioutil.ReadFile(pathOfFormDetails)
