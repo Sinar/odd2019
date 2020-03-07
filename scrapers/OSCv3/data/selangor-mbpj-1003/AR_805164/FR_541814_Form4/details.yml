@@ -1,0 +1,33 @@
+id: "541814"
+formnum: Form4
+status: L - LULUS
+jenispemohonan: B3 - Permit Sementara Bangunan
+tarikhpermohonan: 24-Jan-2020
+statusterkiniat: "<td colspan=\"3\" valign=\"top\"><table width=\"100%\" border=\"0\"
+  cellspacing=\"0\" cellpadding=\"1\">\n        <tbody><tr>\n          <td height=\"30\"
+  colspan=\"3\" bgcolor=\"#FFCC99\"><font color=\"#003300\" size=\"3\" face=\"Georgia,
+  Times New Roman, Times, serif\"><b>Status Terkini di Tindakan Agensi Teknikal (AT)</b></font></td>\n
+  \         </tr>\n\t\t</tbody></table>\n\t\n\t<!-- kalau AT Luar tak de lagi, hide..
+  kalu ada baru tunjuk Table ni -->\n\n\t <br/>\n\t <!-- kalau AT Dalam tak de lagi,
+  hide.. kalu ada baru tunjuk Table ni -->\n\t \n\t\t<table width=\"100%\" border=\"0\"
+  cellpadding=\"2\" cellspacing=\"1\">\n          <tbody><tr>\n            <td width=\"308\"
+  height=\"25\" bgcolor=\"#99FF66\"><strong><font color=\"#003300\" size=\"2\" face=\"Arial,
+  Helvetica, sans-serif\">Agensi Teknikal Dalaman </font></strong></td>\n            <td
+  width=\"191\" height=\"25\" bgcolor=\"#99FF66\"><div align=\"center\"><strong><font
+  color=\"#003300\" size=\"2\" face=\"Arial, Helvetica, sans-serif\">Tarikh Hantar
+  Kepada AT </font></strong></div></td>\n            <td width=\"210\" height=\"25\"
+  bgcolor=\"#99FF66\"><div align=\"center\"><strong><font color=\"#003300\" size=\"2\"
+  face=\"Arial, Helvetica, sans-serif\">Tarikh Terima Ulasan </font></strong></div></td>\n
+  \           <td width=\"67\" bgcolor=\"#99FF66\"><div align=\"center\"><strong><font
+  color=\"#003300\" size=\"2\" face=\"Arial, Helvetica, sans-serif\">Bil. Hari </font></strong></div></td>\n
+  \         </tr>\n          \n              \n            <tr bgcolor=\"#eeEEee\">\n
+  \             <td height=\"25\"><font color=\"#0000CC\"><strong><font size=\"2\">Jabatan
+  Bangunan PBT</font></strong></font></td>\n              <td height=\"25\"><div align=\"center\"><font
+  color=\"#0000CC\"><strong><font size=\"2\">\n                  24-Jan-2020\n              </font></strong></font></div></td>\n
+  \             <td height=\"25\"><div align=\"center\"><font face=\"Arial, Helvetica,
+  sans-serif\"><strong><font size=\"2\">\n                \n                  <font
+  color=\"#0000CC\">11-Feb-2020</font>\n                \n              </font></strong></font></div></td>\n\t\t
+  \  \n            \n                  \n            \n\t\t                <td><div
+  align=\"center\"><font color=\"#0000CC\"><strong><font size=\"2\">18</font></strong></font></div></td>\n
+  \           </tr>\n          \n        </tbody></table>\n\t\t\t\t</td>"
+tarikhkeputusanosc: "11-Feb-2020 \n\t\t\n\t\t\n\t\t [ 18 hari ]"
