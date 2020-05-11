@@ -238,7 +238,7 @@ func extractDataFromSnapshot(volumePrefix string, snapshotLabel string, uniqueSe
 	// for _, singleRecord := range appSnapshot.appRecords {
 	// 	fmt.Printf("%s,", singleRecord.ID)
 	// }
-
+	// fmt.Println("========================")
 	return appSnapshot
 }
 
@@ -310,7 +310,7 @@ func FindNewRequests(authorityToScrape string) {
 	var uniqueSearchID = mapAuthorityToDirectory(authorityToScrape)
 
 	// Refactor  out the currentDate
-	var currentDateLabel = "20200331"
+	var currentDateLabel = "20200511"
 	currentSnapshot := extractDataFromSnapshot(volumePrefix, currentDateLabel, uniqueSearchID)
 	// If in Codefresh; do a branch, git add + commit?
 	// Refactor out the previousDate
